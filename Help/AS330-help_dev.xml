@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+    Usable with FlightGear
+
+    Copyright License:  CREATIVE COMMON BY-NC-ND   GRTHTEAM
+-->
+<PropertyList>
+
+        <title>Helicoptere AS330-Puma</title>
+            <key>
+            <name>}</name>
+            <desc>Toggle Electric power ON/OFF </desc>
+            </key>
+            <key>
+            <name>{</name>
+            <desc>Toggle CutOff</desc>
+            </key>
+            <key>
+                <name>k</name>
+                <desc>Toggle rotor brake ON/OFF</desc>
+            </key>
+	    <key>
+                <name>s</name>
+                <desc>Start Engine</desc>
+            </key>
+	    <key>
+                <name>K (upper case)</name>
+                <desc>Toggle rotor clutch ON/OFF</desc>
+            </key>
+            <key>
+                <name>d</name>
+                <desc>Toggle  Cockpit Door </desc>
+            </key>
+            <key>
+            <name>D</name>
+            <desc>Toggle  Cabin Door </desc>
+            </key>
+            <key>
+            <name>B</name>
+            <desc>Toggle Brake-Parking</desc>
+            </key>
+            <key>
+                <name>j</name>
+                <desc>parachuter Jump when available ( aircraft=Puma_ALAT-f  )</desc>
+            </key>
+        <text>
+
+
+
+That Helicopter is loaded with:
+Electric power OFF
+Engines and Rotor Gear OFF
+Rotor Clutch OFF
+Rotor Brake ON
+Brake-Parking ON
+
+START AND CONTROL
+With shortkeys  __  MIND  those  keys  are  toggle
+1 Rotor brake  OFF  => "k" (only once)
+2 Electical power ON => key "}" (only once )
+3 Cutoff   OFF  => "{" (only once)
+4 Start => "s" (only once)
+5 WAIT for percent rpm  get 60% (Engine Instrument on panel)
+6 Rotor cluch  will be engaged automatically
+
+OR  You could prefer:
+Menu/AS330/Aircraft_Control
+
+AUTO ROTATION
+The Collective must be at  full (down) position
+Rotor cluch  OFF  => "K" (only once)
+Keep on a stabilized position with  a  speed of 40 knts
+The Rotor will stabilize at 160 rpm
+Both values are estimated under normal condition.
+When close to the ground level, pull quickly the Collective
+
+
+RESCUE OPERATION  (French Air Force   resco version)
+Only for fun
+1 Open the rear right door => key "D"
+2 Select Rescue-Op   ON => key "r"  (toggle ON/OFF)
+You will notice a man on the side of the left door, and a man hanging on the rope
+3 UP the rescued man => key 'w' or Down    => key 'W'
+    When up UP the rescued person will be removed
+
+
+SOLDIERS OPERATION  (A.L.A.T. "sar" and "desert" version)
+Same process than "Rescue".
+The Desert version which has not any exerternal winch wants the horizontal floor doors opened, thus the operation is done from the center ( under the Main rotor ) of the aircraft.
+You want to click on these doors to open (Inside cabine view).
+
+PARACHUTERS  DROP  (A.L.A.T. "sar"  and "desert" version)
+From the left side of the Aircraft
+The cabin left door must be opened.
+=> key "j"  ten parachuters will be jumping
+
+
+
+
+
+
+        </text>
+
+</PropertyList>

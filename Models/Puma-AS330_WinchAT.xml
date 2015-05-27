@@ -1,0 +1,58 @@
+<PropertyList>
+    <!--
+        Usable with FlightGear
+        Property of Gerard Robin  (C)  2007
+        Copyright License:  CREATIVE COMMON BY-NC-ND
+-->
+
+
+    <path>puma-winch-AT.ac</path>
+
+	<texture-path>Texturefr</texture-path>
+
+
+	<offsets>
+		<pitch-deg>0</pitch-deg>
+		<z-m>0.0</z-m>
+	</offsets>
+
+
+
+
+        <model>
+            <name>Force-Op</name>
+            <path>Aircraft/AS330-Puma/Models/Crew/Force-Op.xml</path>
+            <offsets>
+                <x-m>-1.0792</x-m>
+                <y-m>1.28835</y-m>
+                <z-m>-5.4</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+
+        <animation>
+            <type>select</type>
+            <object-name>Force-Op</object-name>
+            <condition>
+                <equals>
+                    <property>fdm/jsbsim/animation/right-cabin_door-pos-norm</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </animation>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PropertyList>

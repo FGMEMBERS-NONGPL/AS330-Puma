@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!--
+    Usable with FlightGear
+    Copyright Gerard Robin  31-03-2009
+    Under License:  CREATIVE-COMMON
+-->
+
+<system name="Sink">
+
+    <channel name="Sink">
+
+
+
+           <!-- contact points On/Off-->
+
+           <switch name="systems/sinking/switch">
+               <default value="0"/>
+               <test logic="AND" value="1">
+                   ground/solid  == 0
+                   position/h-agl-ft lt 3.5
+                   velocities/vc-fps lt 50
+               </test>
+            </switch>
+
+           <kinematic name="Sinking Control">
+               <input>systems/sinking/switch</input>
+               <traverse>
+                   <setting>
+                       <position>0</position>
+                       <time>0</time>
+                   </setting>
+                   <setting>
+                       <position>1</position>
+                       <time>10</time>
+                   </setting>
+               </traverse>
+               <output>systems/sinking/timer</output>
+           </kinematic>
+
+           <switch name="Belly">
+               <default value="1"/>
+               <test  value="0">
+                   systems/sinking/timer gt 0.20
+               </test>
+               <output>systems/sinking/cpbelly</output>
+            </switch>
+
+           
+
+            <switch name="Cp Belly">
+                <default value="1"/>
+                <test  logic="AND" value="0">
+                    systems/sinking/cpbelly == 0
+                </test>
+                <output>contact/unit[7]/pos-norm</output>
+            </switch>
+	    
+	    <switch name="Wings">
+               <default value="1"/>
+               <test  value="0">
+                   systems/sinking/timer gt 0.40
+               </test>
+               <output>systems/sinking/cpwing</output>
+            </switch>
+
+           
+
+            <switch name="Cp Wings">
+                <default value="1"/>
+                <test  logic="AND" value="0">
+                    systems/sinking/cpwing == 0
+                </test>
+                <output>contact/unit[5]/pos-norm</output>
+		<output>contact/unit[6]/pos-norm</output>
+		<output>contact/unit[12]/pos-norm</output>
+		<output>contact/unit[13]/pos-norm</output>
+            </switch>
+	    
+	    <switch name="Propulsion">
+                <default value="1"/>		
+		 <test  value="0">
+                   systems/sinking/timer gt 0.50
+               </test>
+               <output>systems/sinking/cppropulsion</output>
+            </switch>
+	    
+	    
+	    <switch name="Cp Propulsion">
+                <default value="1"/>		
+		 <test  value="0">
+                   systems/sinking/cppropulsion  == 0
+               </test>
+               <output>systems/sinking/propulsion</output>
+	       <output>systems/sinking/electrical</output>
+            </switch>
+	    
+	    
+	    
+	    
+
+            <!--<switch name="Nose">
+                <default value="1"/>
+                <test  value="0">
+                    systems/sinking/timer gt 0.30
+                </test>
+                <output>systems/sinking/cpnose</output>
+            </switch>
+
+            <switch name="Cp Nose">
+                <default value="1"/>
+                <test  logic="AND" value="0">
+                    systems/sinking/cpnose == 0
+                </test>
+                <output>contact/unit[]/pos-norm</output>
+            </switch>
+	    
+	    
+	    <switch name="Cockpit">
+                <default value="1"/>
+                <test  value="0">
+                    systems/sinking/timer gt 0.60
+                </test>
+                <output>systems/sinking/cpcockpit</output>
+            </switch>
+
+            <switch name="Cp cockpit">
+                <default value="1"/>
+                <test  logic="AND" value="0">
+                    systems/sinking/cpnose == 0
+                </test>
+                <output>contact/unit[]/pos-norm</output>
+		<output>contact/unit[]/pos-norm</output>
+            </switch>
+	    -->
+	    
+	    
+
+            <!--<switch name="Radom">
+                <default value="1"/>
+                <test  value="0">
+                    systems/sinking/timer gt 0.30
+                </test>
+                <output>systems/sinking/cpradom</output>
+            </switch>
+
+            <actuator name="Cp Radom">
+                <input>systems/sinking/cpradom</input>
+                <rate_limit>0.1</rate_limit>
+                <output>contact/unit[8]/pos-norm</output>
+	    </actuator>-->    
+           
+    </channel>
+
+
+
+
+
+</system>

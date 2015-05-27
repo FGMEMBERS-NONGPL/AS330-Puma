@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--
+    Usable with FlightGear
+    Property of Gerard Robin (C) 2008-2010
+    Copyright 
+-->
+<PropertyList>
+
+	
+	<model>
+            <name>Co-Pilote-In-Top</name>
+	    <path>Aircraft/AS330-Puma/Models/Crew/Puma-AT_PilotT_v2.xml</path>
+            <offsets>
+		<x-m>-3.265</x-m>
+		<y-m>-0.53117</y-m>
+		<z-m>-0.335</z-m>
+		<pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+	
+	<model>
+            <name>Co-Pilote-Head</name>
+	    <path>Aircraft/AS330-Puma/Models/Crew/Co-Pilot-Head.xml</path>
+            <offsets>
+		<x-m>-3.265</x-m>
+		<y-m>-0.53117</y-m>
+		<z-m>-0.335</z-m>
+		<pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+	
+	
+	<model>
+            <name>Co-Pilote-In-Bot</name>
+	    <path>Aircraft/AS330-Puma/Models/Crew/Puma-AT_PilotB_v2.xml</path>
+            <offsets>
+		<x-m>-3.265</x-m>
+		<y-m>-0.53117</y-m>
+		<z-m>-0.347453</z-m>
+                    <pitch-deg>-6</pitch-deg>
+            </offsets>
+        </model>
+	
+	
+	
+	<model>
+            <name>Pilote-In-Top</name>
+	    <path>Aircraft/AS330-Puma/Models/Crew/Puma-AT_PilotT_v2.xml</path>
+            <offsets>		
+                    <x-m>-3.265</x-m>
+		     <y-m>0.5243</y-m>
+                    <z-m>-0.335</z-m>
+                    <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+	
+	<model>
+            <name>Pilote-Head</name>
+	    <path>Aircraft/AS330-Puma/Models/Crew/Pilot-Head.xml</path>
+            <offsets>
+		<x-m>-3.265</x-m>
+		 <y-m>0.5243</y-m>
+		<z-m>-0.335</z-m>
+		<pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+	
+	
+	
+	<model>
+            <name>Pilote-In-Bot</name>
+	    <path>Aircraft/AS330-Puma/Models/Crew/Puma-AT_PilotB_v2.xml</path>
+            <offsets>
+                    <x-m>-3.265</x-m>
+		     <y-m>0.5243</y-m>
+                    <z-m>-0.347453</z-m>
+                    <pitch-deg>-6</pitch-deg>
+		    <heading-deg>-1</heading-deg>
+            </offsets>
+        </model>
+	
+
+
+    <!--<name>Cockpit_View</name> => 0
+    <name>Wide-cockpit_View</name>  => 99-->-->
+	<animation>
+            <type>select</type>
+            <object-name>Pilote-In-Top</object-name>
+	    <object-name>Pilote-Head</object-name>
+	    <object-name>Pilote-In-Bot</object-name>
+            <condition>
+                    <and>
+			<greater-than>
+			    <property>fdm/jsbsim/simulation/sim-time-sec</property>
+			    <value>11</value>
+			</greater-than>
+                        <greater-than>
+                            <property>sim/current-view/view-number</property>
+                            <value>0</value>
+                        </greater-than>
+			 <less-than>
+			    <property>fdm/jsbsim/animation/cockpit-right-door-pos-norm</property>
+			    <value>0.95</value>
+			</less-than>
+			<property>fdm/jsbsim/animation/pilot-copilot</property>
+                    </and>
+            </condition>
+        </animation>
+	
+	<animation>
+            <type>select</type>
+            <object-name>Co-Pilote-In-Top</object-name>
+	    <object-name>Co-Pilote-Head</object-name>
+	    <object-name>Co-Pilote-In-Bot</object-name>
+            <condition>
+                    <property>fdm/jsbsim/animation/pilot-copilot</property>
+            </condition>
+        </animation>
+
+</PropertyList>        

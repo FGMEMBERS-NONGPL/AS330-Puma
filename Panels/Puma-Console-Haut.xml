@@ -1,0 +1,643 @@
+<?xml version="1.0"?>
+
+<!--
+    Dedicated only to FlightGear
+    Property of Gerard Robin
+    License:  CREATIVE COMMON BY-NC-ND
+-->
+
+
+
+<PropertyList>
+
+    <path>Models/console_overhead.ac</path>
+    <texture-path>Models/Textures</texture-path>
+    
+    <effect>
+	<inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
+	<object-name>Emergency-handle</object-name>
+	    <object-name>Rotor-Brake</object-name>
+	<object-name>Inter-Master</object-name>
+	    <object-name>Inter-Battery0</object-name>
+	<object-name>Inter-Battery1</object-name>
+	<object-name>Inter-Gener0</object-name>
+	    <object-name>Inter-Gener1</object-name>
+	<object-name>Eng-cde1</object-name>
+	<object-name>Eng-cde2</object-name>
+    </effect>
+    
+    <model>
+        <name>Ampere-0</name>
+        <path>Aircraft/AS330-Puma/Instruments/Ampere-0.xml</path>
+        <offsets>
+            <x-m>-3.5308</x-m>
+            <y-m>-0.0502558</y-m>
+            <z-m>0.6476</z-m>
+	    <roll-deg>0</roll-deg>
+	    <pitch-deg>90</pitch-deg>	    
+        </offsets>
+    </model>
+    
+    <model>
+	<name>Light-Ampere-0</name>
+	<path>Aircraft/AS330-Puma/Instruments/Light-Bezel-f4u7.xml</path>
+	<offsets>
+		<x-m>-3.5308</x-m>
+	    <y-m>-0.0502558</y-m>
+	    <z-m>0.6476</z-m>
+	    <roll-deg>0</roll-deg>
+	    <pitch-deg>90</pitch-deg>	
+	</offsets>
+    </model>
+
+    
+    <model>
+        <name>Ampere-1</name>
+        <path>Aircraft/AS330-Puma/Instruments/Ampere-1.xml</path>
+        <offsets>
+            <x-m>-3.5308</x-m>
+            <y-m>0.0502558</y-m>
+            <z-m>0.6476</z-m>
+	    <roll-deg>0</roll-deg>
+	    <pitch-deg>90</pitch-deg>	    
+        </offsets>
+    </model>
+    
+    <model>
+	<name>Light-Ampere-1</name>
+	<path>Aircraft/AS330-Puma/Instruments/Light-Bezel-f4u7.xml</path>
+	<offsets>
+	    <x-m>-3.5308</x-m>
+	    <y-m>0.0502558</y-m>
+	    <z-m>0.6476</z-m>
+	    <roll-deg>0</roll-deg>
+	    <pitch-deg>90</pitch-deg>	
+	</offsets>
+    </model>
+    
+    
+    <animation>
+	<type>select</type>
+	<object-name>Light-Ampere-0</object-name>
+	<object-name>Light-Ampere-1</object-name>
+	<condition>
+	    <property>sim/rendering/rembrandt/enabled</property>
+	</condition>
+    </animation>
+
+    
+    
+    <animation include="Instrument-Light0_nc.xml">
+	    <object-name>Couronne</object-name>
+    </animation>
+    
+     <!--<effect>
+	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectPuma</inherits-from>
+            <object-name></object-name>
+	    <object-name></object-name>            
+        </effect>-->
+	
+	
+    <model>
+        <name>Light-cons31</name>
+	<path>Aircraft/AS330-Puma/Models/Remb/Light_cons.xml</path>
+        <offsets>
+            <x-m>-3.25285</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.639274</z-m>	
+	    <pitch-deg>180</pitch-deg>
+        </offsets>
+    </model>
+    
+    <model>
+        <name>Light-cons32</name>
+	<path>Aircraft/AS330-Puma/Models/Remb/Light_cons.xml</path>
+        <offsets>
+            <x-m>-3.18</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.7</z-m>	
+	    <pitch-deg>180</pitch-deg>
+        </offsets>
+    </model>
+    
+    <model>
+        <name>Light-cons33</name>
+	<path>Aircraft/AS330-Puma/Models/Remb/Light_cons.xml</path>
+        <offsets>
+            <x-m>-3.11</x-m>
+            <y-m>0.2</y-m>
+            <z-m>0.7</z-m>	
+	    <pitch-deg>180</pitch-deg>
+        </offsets>
+    </model>
+    
+    <model>
+        <name>Light-cons34</name>
+	<path>Aircraft/AS330-Puma/Models/Remb/Light_cons.xml</path>
+        <offsets>
+            <x-m>-3.11</x-m>
+            <y-m>-0.2</y-m>
+            <z-m>0.7</z-m>	
+	    <pitch-deg>180</pitch-deg>
+        </offsets>
+    </model>
+	
+    <animation>
+        <type>pick</type>
+        <object-name>Inter-Gener0</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+		<property>fdm/jsbsim/electrical/switch/alternator</property>
+            </binding>
+        </action>
+    </animation>
+    
+     <animation>
+        <type>rotate</type>
+        <object-name>Inter-Gener0</object-name>
+	<property>fdm/jsbsim/electrical/switch/alternator</property>
+      <interpolation>
+	    <entry>
+		<ind>0.0 </ind>
+		<dep>-40</dep>
+	    </entry>
+	    <entry>
+		<ind>1.0</ind> 
+		<dep>40.0</dep>
+	    </entry>
+	</interpolation>
+        <center>
+            <x-m>-3.42013</x-m>
+            <y-m>0</y-m>
+            <z-m>0.655723</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    
+    <animation>
+        <type>select</type>
+        <object-name>Inter-gen0-light</object-name>
+	<condition>
+	    <property>fdm/jsbsim/electrical/switch/alternator</property>
+	</condition>
+    </animation>
+    
+    <animation>
+        <type>pick</type>
+        <object-name>Inter-Gener1</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+		<property>fdm/jsbsim/electrical/switch/alternator</property>
+            </binding>
+        </action>
+    </animation>
+    
+     <animation>
+        <type>rotate</type>
+        <object-name>Inter-Gener1</object-name>
+	<property>fdm/jsbsim/electrical/switch/alternator</property>
+      <interpolation>
+	    <entry>
+		<ind>0.0 </ind>
+		<dep>-40</dep>
+	    </entry>
+	    <entry>
+		<ind>1.0</ind> 
+		<dep>40.0</dep>
+	    </entry>
+	</interpolation>
+        <center>
+            <x-m>-3.42013</x-m>
+            <y-m>0</y-m>
+            <z-m>0.655723</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>Inter-gen1-light</object-name>
+	<condition>
+	    <property>fdm/jsbsim/electrical/switch/alternator</property>
+	</condition>
+    </animation>
+    
+    <animation>
+        <type>pick</type>
+        <object-name>Inter-Battery0</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+		<property>fdm/jsbsim/electrical/switch/battery</property>
+            </binding>
+        </action>
+    </animation>
+    
+     <animation>
+        <type>rotate</type>
+        <object-name>Inter-Battery0</object-name>
+	<property>fdm/jsbsim/electrical/switch/battery</property>
+      <interpolation>
+	    <entry>
+		<ind>0.0 </ind>
+		<dep>-40</dep>
+	    </entry>
+	    <entry>
+		<ind>1.0</ind> 
+		<dep>40.0</dep>
+	    </entry>
+	</interpolation>
+        <center>
+	     <x-m>-3.42013</x-m>
+            <y-m>0</y-m>
+            <z-m>0.655723</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>Inter-battery0-light</object-name>
+	<condition>
+	    <property>fdm/jsbsim/electrical/switch/battery</property>
+	</condition>
+    </animation>
+    
+     <animation>
+        <type>pick</type>
+        <object-name>Inter-Battery1</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+		<property>fdm/jsbsim/electrical/switch/battery</property>
+            </binding>
+        </action>
+    </animation>
+    
+     <animation>
+        <type>rotate</type>
+        <object-name>Inter-Battery1</object-name>
+	<property>fdm/jsbsim/electrical/switch/battery</property>
+      <interpolation>
+	    <entry>
+		<ind>0.0 </ind>
+		<dep>-40</dep>
+	    </entry>
+	    <entry>
+		<ind>1.0</ind> 
+		<dep>40.0</dep>
+	    </entry>
+	</interpolation>
+        <center>
+	     <x-m>-3.42013</x-m>
+            <y-m>0</y-m>
+            <z-m>0.655723</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>Inter-battery1-light</object-name>
+	<condition>
+	    <property>fdm/jsbsim/electrical/switch/battery</property>
+	</condition>
+    </animation>
+    
+   <animation>
+        <type>rotate</type>
+        <object-name>Inter-Master</object-name>
+	<property>fdm/jsbsim/animation/electrical-master-switch</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>-40</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>40</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-3.42013</x-m>
+            <y-m>0</y-m>
+            <z-m>0.655723</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Inter-Master</object-name>
+        <action>
+            <button>0</button>
+           <binding>
+		<command>property-assign</command>
+		<property>fdm/jsbsim/animation/electrical-master-switch</property>
+		<value>1</value>
+	    </binding>
+        </action>
+	<action>
+            <button>1</button>
+           <binding>
+		<command>property-assign</command>
+		<property>fdm/jsbsim/animation/electrical-master-switch</property>
+		<value>0</value>
+	    </binding>
+	    <binding>
+		<command>property-assign</command>
+		<property>fdm/jsbsim/systems/engine/start-state</property>
+		<value>0</value>
+	    </binding>
+        </action>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>Inter-master-light</object-name>
+	<condition>
+	    <property>fdm/jsbsim/animation/electrical-master-switch</property>
+	</condition>
+    </animation>
+    
+    
+    
+	<animation>
+        <type>rotate</type>
+        <object-name>Rotor-Brake</object-name>
+	<property>fdm/jsbsim/animation/rotor_brake-switch-cmd</property>
+        <interpolation>
+            <entry>
+                <ind>0</ind>
+                <dep>10</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>-10</dep>
+            </entry>
+        </interpolation>
+        <center>
+            <x-m>-3.66267</x-m>
+            <y-m>0</y-m>
+            <z-m>0.697138</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Rotor-Brake</object-name>
+        <action>
+            <button>0</button>
+           <binding>
+		<command>property-toggle</command>
+		<property>fdm/jsbsim/animation/rotor_brake-switch-cmd</property>
+	    </binding>
+	    <binding>
+		<command>property-toggle</command>
+		<property>fdm/jsbsim/animation/rotor_brake-switch-lock-cmd</property>
+	    </binding>
+	    <binding>
+		<command>property-assign</command>
+		<property>fdm/jsbsim/fcs/wing-fold-cmd</property>
+		<value>0</value>
+	    </binding>
+        </action>
+    </animation>
+    
+    
+    <!-- ========================-->
+
+	<animation>
+            <type>pick</type>
+            <object-name>Eclairage_pupitre</object-name>
+            <action>
+                <button>0</button>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>sim/model/puma/instrument-lights</property>
+                    <step>0.05</step>
+                    <min>0</min>
+                    <max>1</max>
+                    <wrap>1</wrap>
+                </binding>
+            </action>
+        </animation>
+
+        <animation>
+            <type>pick</type>
+            <object-name>Eclairage_pupitre</object-name>
+            <action>
+                <button>1</button>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>sim/model/puma/instrument-lights</property>
+                    <step>-0.05</step>
+                    <min>0</min>
+                    <max>1</max>
+                    <wrap>1</wrap>
+                </binding>
+            </action>
+        </animation>
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Eclairage_pupitre</object-name>
+		<object-name>Eclairage_pupitre_Fleche</object-name>
+		<property>sim/model/puma/instrument-lights</property>
+		<factor>280</factor>
+		<center>
+			<x-m>-3.19847</x-m>
+			<y-m>0.16057</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+
+        <animation>
+            <type>pick</type>
+            <object-name>Eclairage-Panel</object-name>
+            <action>
+                <button>0</button>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>sim/model/puma/console-lights</property>
+                    <step>0.05</step>
+                    <min>0</min>
+                    <max>1</max>
+                    <wrap>1</wrap>
+                </binding>
+            </action>
+        </animation>
+
+        <animation>
+            <type>pick</type>
+            <object-name>Eclairage-Panel</object-name>
+            <action>
+                <button>1</button>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>sim/model/puma/console-lights</property>
+                    <step>-0.05</step>
+                    <min>0</min>
+                    <max>1</max>
+                    <wrap>1</wrap>
+                </binding>
+            </action>
+        </animation>
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Eclairage-Panel</object-name>
+		<object-name>Eclairage-Panel_Fleche</object-name>
+		<property>sim/model/puma/console-lights</property>
+		<factor>280</factor>
+		<center>
+			<x-m>-3.19847</x-m>
+			<y-m>0.21925</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	
+	
+    <animation>
+            <type>pick</type>
+            <object-name>Eclairage_cockpit</object-name>
+            <action>
+                <button>0</button>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>sim/model/puma/cockpit-lights</property>
+                    <step>0.05</step>
+                    <min>0</min>
+                    <max>1</max>
+                    <wrap>1</wrap>
+                </binding>
+            </action>
+        </animation>
+
+        <animation>
+            <type>pick</type>
+            <object-name>Eclairage_cockpit</object-name>
+            <action>
+                <button>1</button>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>sim/model/puma/cockpit-lights</property>
+                    <step>-0.05</step>
+                    <min>0</min>
+                    <max>1</max>
+                    <wrap>1</wrap>
+                </binding>
+            </action>
+        </animation>
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Eclairage_cockpit</object-name>
+		<object-name>Eclairage_cockpit_Fleche</object-name>
+		<property>sim/model/puma/cockpit-lights</property>
+		<factor>280</factor>
+		<center>
+			<x-m>-3.25879</x-m>
+			<y-m>0.21925</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+    
+    
+    
+	
+
+    <!--<animation>
+            <condition>
+            <equals>
+                <property>sim/current-view/view-number</property>
+                <value>999</value>
+            </equals>
+        </condition>
+        <type>select</type>
+        <object-name>Gabarit-Pose</object-name>
+    </animation>-->
+
+
+
+    <!--<effect>
+        <inherits-from>Aircraft/AS330-Puma/Effets/reflectCockpit</inherits-from>
+        <object-name>CorpsH</object-name>
+    </effect>-->
+
+    <!--================1================-->
+
+   <!-- <model>
+        <name></name>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
+        <offsets>
+            <x-m>0.151301</x-m>
+            <y-m>-0.647295</y-m>
+            <z-m>0.0549686</z-m>
+        </offsets>
+    </model>-->
+
+
+    <!--<model>
+        <name></name>
+        <path>Aircraft/AS330-Puma/Instruments/ALT-Nord.xml</path>
+        <offsets>
+            <x-m>0.1412996</x-m>
+            <y-m>0.636032</y-m>
+            <z-m>-0.046846</z-m>
+        </offsets>
+    </model>-->
+
+
+
+</PropertyList>

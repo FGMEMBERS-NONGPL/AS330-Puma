@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+    Usable with FlightGear
+    Gerard Robin  08-10-2009
+    Copyright License:  CREATIVE COMMON
+-->
+<PropertyList>
+    <default>
+        <menu n="10">
+            <label>AS330</label>
+            <enabled type="bool">true</enabled>
+	     <item>
+                <label>Aircraft_Control</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>
+                        var start = gui.Dialog.new("/sim/gui/dialogs/AS330/menu/control/dialog",
+                        "Aircraft/AS330-Puma/Inputs/aircraft-control.xml");
+                        start.open();
+                    </script>
+                </binding>
+            </item>	    
+            <!--<item>
+                <label>Easy START</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>puma.init_Run();</script>
+                </binding>
+            </item>-->
+            <item>
+                <label>Collective-Yes-No</label>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>sim/model/collective-selected</property>
+                </binding>
+            </item>
+            <item>
+                <label>Difficulty: ___EASY___</label>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/fdm/jsbsim/aero/setup/Nr_limiter</property>
+                    <value>1</value>
+                </binding>
+            </item>
+            <item>
+                <label>Difficulty: __DEFAULT__</label>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/fdm/jsbsim/aero/setup/Nr_limiter</property>
+                    <value>0.05</value>
+                </binding>
+            </item>
+            <item>
+                <label>Difficulty: _ACCURATE_</label>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/fdm/jsbsim/aero/setup/Nr_limiter</property>
+                    <value>0.00</value>
+                </binding>
+            </item>
+	    <item>
+                <label>Fcs Devel Help</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>puma.display_helper();</script>
+                </binding>
+            </item>
+            <item>
+                <label>Fcs Devel Help close</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>puma.close_helper();</script>
+                </binding>
+            </item>
+        </menu>
+    </default>
+</PropertyList>

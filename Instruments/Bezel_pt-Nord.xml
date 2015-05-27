@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+    Usable with FlightGear
+    Property of Gerard Robin
+    Copyright License:  CREATIVE COMMON BY-NC-ND
+-->
+<PropertyList>
+
+	<path>Models/bezel_pt-nord.ac</path>
+	<texture-path>Models/Textures</texture-path>
+
+	<animation>
+		<type>noshadow</type>
+		<object-name>Bezel</object-name>
+	</animation>
+
+	<animation include="Instrument-Light5.xml">
+		<object-name>Couronne</object-name>
+	</animation>
+	
+	<!--<effect>
+	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
+	    <object-name>Couronne</object-name>	    
+	</effect>-->
+
+        <model>
+            <name>Light-Bezel_pt-Nord</name>
+            <path>Aircraft/AS330-Puma/Instruments/Light-Bezel_pt-Nord.xml</path>
+            <offsets>
+                <x-m>0.000</x-m>
+                <y-m>0</y-m>
+                <z-m>0.0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+        <animation>
+            <type>select</type>
+            <object-name>Light-Bezel_pt-Nord</object-name>
+            <condition>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </condition>
+        </animation>
+
+
+</PropertyList>

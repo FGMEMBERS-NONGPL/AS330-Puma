@@ -1,0 +1,165 @@
+<PropertyList>
+    <!--
+        Usable with FlightGear
+        Property of Gerard Robin  (C)  2007
+        Copyright License:  CREATIVE COMMON BY-NC-ND
+-->
+
+
+    <path>puma-winch-AA.ac</path>
+
+	<texture-path>Texturefr</texture-path>
+
+
+	<offsets>
+		<pitch-deg>0</pitch-deg>
+		<z-m>0.0</z-m>
+	</offsets>
+
+
+
+
+        <animation>
+            <type>rotate</type>
+            <object-name>Winch-group</object-name>
+            <object-name>Winch-Arm</object-name>
+            <property>fdm/jsbsim/animation/right-cabin_door-pos-norm</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-100</dep>
+                </entry>
+                <entry>
+                    <ind>0.50</ind>
+                    <dep>-100</dep>
+                </entry>
+                <entry>
+                    <ind>1</ind>
+                    <dep>0</dep>
+                </entry>
+            </interpolation>
+            <center>
+                <x-m>0</x-m>
+                <y-m>0.763643</y-m>
+                <z-m>0.603418</z-m>
+            </center>
+            <axis>
+                <x>1</x>
+                <y>0</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>rotate</type>
+
+            <object-name>Rescue-Server</object-name>
+            <property>fdm/jsbsim/animation/right-cabin_door-pos-norm</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>0</dep>
+                </entry>
+                <entry>
+                    <ind>0.50</ind>
+                    <dep>0</dep>
+                </entry>
+                <entry>
+                    <ind>1</ind>
+                    <dep>-40</dep>
+                </entry>
+            </interpolation>
+            <center>
+                <x-m>-0.059684</x-m>
+                <y-m>0.877623</y-m>
+                <z-m>0</z-m>
+            </center>
+            <axis>
+                <x></x>
+                <y>0</y>
+                <z>1</z>
+            </axis>
+        </animation>
+
+
+
+        <!--======================RESCUE=================================-->
+
+
+
+        <model>
+            <name>Rescue-Op</name>
+            <path>Aircraft/AS330-Puma/Models/Rescue/Rescue-Op.xml</path>
+            <offsets>
+                <x-m>-0.677318</x-m>
+                <y-m>1.65368</y-m>
+                <z-m>-5.2</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+
+        <model>
+            <name>Rescue-Man</name>
+            <path>Aircraft/AS330-Puma/Models/Rescue/Rescue-Man.xml</path>
+            <offsets>
+                <x-m>-0.613723</x-m>
+                <y-m>1.18753</y-m>
+                <z-m>-0.279575</z-m>
+                <pitch-deg>0</pitch-deg>
+                <heading-deg>0</heading-deg>
+            </offsets>
+        </model>
+
+
+        <animation>
+            <type>select</type>
+            <object-name>Rescue-Op</object-name>
+            <object-name>Rescue-Man</object-name>
+            <condition>
+                <equals>
+                    <property>fdm/jsbsim/animation/right-cabin_door-pos-norm</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Treuil-Crochet</object-name>
+            <condition>
+                <or>
+                    <not-equals>
+                        <property>/sim/model/rescue</property>
+                        <value>1</value>
+                    </not-equals>
+                    <equals>
+                        <property>fdm/jsbsim/animation/right-cabin_door-pos-norm</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/sim/model/rescue-lift</property>
+                        <value>0</value>
+                    </equals>
+                </or>
+            </condition>
+        </animation>
+
+        <!--======================RESCUE===END===========================-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PropertyList>

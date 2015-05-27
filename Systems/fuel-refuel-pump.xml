@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+
+<system name="Fuel-ReFuel">
+    <property value="3500">systems/refueling0_req-qty</property>
+    <property value="1">systems/tank0-feed-cmd</property>
+    <property>propulsion/systems/pump-kinemat-out</property>
+   
+
+        <channel name="Pump-fuel">            
+
+            <!--Un temporisateur  d'injection -->
+            <switch name="pump-sw">
+                <default value="propulsion/systems/pump-kinemat-in"/>
+                <test logic="AND" value="1">
+                    propulsion/systems/pump-kinemat-in == 0
+                    propulsion/systems/pump-kinemat-out == 0
+                </test>
+                <test logic="AND" value="0">
+                    propulsion/systems/pump-kinemat-in == 1
+                    propulsion/systems/pump-kinemat-out == 1
+                </test>
+                <output>propulsion/systems/pump-kinemat-in</output>
+            </switch>
+
+            <kinematic name="blinker-norm-pump">
+                <input>propulsion/systems/pump-kinemat-in</input>
+                <traverse>
+                    <setting>
+                        <position>0</position>
+                        <time>0</time>
+                    </setting>
+                    <setting>
+                        <position>1</position>
+                        <time>1</time>
+                    </setting>
+                </traverse>
+                <output>propulsion/systems/pump-kinemat-out</output>
+            </kinematic>
+
+           <!-- injection sous condition  Tank 0  et Pompe 0-->
+	   <!--FIXME must be divided Left/Right-->
+           <switch name="propulsion/systems/tank[0]/pump-flow">
+                <default value="0"/>
+                <test logic="AND" value="1">
+                    propulsion/systems/pump-kinemat-out gt 0.90
+                    propulsion/systems/pump-kinemat-out lt 0.97
+                    systems/tank0-feed-cmd == 1
+		    systems/engine/fuel-pump == 1
+                    inertia/pointmass-weight-lbs[0] gt 1
+                    propulsion/tank[0]/contents-lbs lt 3
+                </test>
+            </switch>
+            
+
+            <!--Tank Principal================================-->
+
+           <!-- calcul de quantité tampon  tank 0 -->
+            <summer name="propulsion/systems/tank[0]/contents-lbs">
+                <input>propulsion/tank[0]/contents-lbs</input>
+                <input>propulsion/systems/tank[0]/pump-flow</input>
+                <output>propulsion/tank[0]/contents-lbs</output>
+            </summer>
+
+            <!--calcul quantité restant    tank 0-->
+            <summer name="propulsion/systems/tank[0]/main-pointmass">
+                <input>inertia/pointmass-weight-lbs[0]</input>
+                <input>-propulsion/systems/tank[0]/pump-flow</input>
+                <clipto>
+                    <min>0</min>
+                    <max>10000</max>
+                </clipto>
+                <output>inertia/pointmass-weight-lbs[0]</output>
+            </summer>
+	    
+        </channel>
+
+        <channel name="Refueling">    <!--remplissage des reservoir-->
+
+           <!--tank 0 + -->
+            <summer name="propulsion/tanks-pointmass-qty">
+                <input>inertia/pointmass-weight-lbs[0]</input>                
+            </summer>
+
+            <summer name="propulsion/tanks-gauge-mainqty">
+                <input>inertia/pointmass-weight-lbs[0]</input>                
+            </summer>  
+	    
+	</channel>
+
+</system>

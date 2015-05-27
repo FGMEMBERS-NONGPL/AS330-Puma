@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+
+<!--
+    Usable with FlightGear
+    copyright 12-09-2011 grthteam (eekpo )
+    Copyright License:  CREATIVE-COMMON
+-->
+<PropertyList>
+
+    <path>Models/module-eng_start.ac</path>
+ <texture-path>Models/Textures</texture-path>
+
+ 	<!--<animation>
+		<type>noshadow</type>
+		<object-name>Temoin</object-name>
+	</animation>-->
+
+        <animation include="Instrument-Light1b.xml">
+            <object-name>Temoin-Marquage</object-name>
+        </animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Eng0_Cutoff-Open</object-name>
+		<object-name>Eng0_Temoin2MActif</object-name>
+		<object-name>Eng0_Cutoff-Close</object-name>
+		<object-name>Eng0_Temoin1-Actif</object-name>
+		<condition>
+			<greater-than>
+				<property>fdm/jsbsim/electrical/outputs/instr-ignition-switch</property>
+				<value>27</value>
+			</greater-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Eng0_Cutoff-Open</object-name>
+		<condition>
+			<equals>
+				<property>fdm/jsbsim/systems/engine/left-cutoff</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+                <object-name>Eng0_Cutoff-Close</object-name>
+		<condition>
+			<and>
+				<equals>
+                                    <property>fdm/jsbsim/systems/engine/left-cutoff</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+
+
+        <!--since at the moment only one engine "temporary" engine 0 only must be engine 1 -->
+
+        <animation>
+            <type>select</type>
+            <object-name>Eng1_Cutoff-Open</object-name>
+            <object-name>Eng1_Temoin2MActif</object-name>
+            <object-name>Eng1_Cutoff-Close</object-name>
+            <object-name>Eng1_Temoin1-Actif</object-name>
+            <condition>
+                <greater-than>
+                    <property>fdm/jsbsim/electrical/outputs/instr-ignition-switch</property>
+                    <value>27</value>
+                </greater-than>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Eng1_Cutoff-Open</object-name>
+            <condition>
+                <equals>
+                    <property>fdm/jsbsim/systems/engine/right-cutoff</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Eng1_Cutoff-Close</object-name>
+            <condition>
+                <and>
+                    <equals>
+                        <property>fdm/jsbsim/systems/engine/right-cutoff</property>
+                        <value>1</value>
+                    </equals>
+                </and>
+            </condition>
+	</animation>
+
+
+        <animation>
+            <type>rotate</type>
+            <object-name>Eng0-Inter</object-name>            
+            <property>fdm/jsbsim/animation/left-inter-pos</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-30</dep>
+                </entry>
+                <entry>
+                    <ind>1</ind>
+                    <dep>30</dep>
+                </entry>
+            </interpolation>
+            <center>
+                <x-m>0.00475013</x-m>
+                <y-m>0</y-m>
+                <z-m>-0.0160641</z-m>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>translate</type>
+            <object-name>Eng0-Start-Cmd</object-name>            
+            <property>fdm/jsbsim/systems/engine/left-starter</property>
+            <factor>-0.01</factor>
+            <axis>
+                <x>1</x>
+                <y>0</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>pick</type>            
+            <object-name>Eng0-Start-Cmd</object-name>
+            <action>
+                <button>0</button>
+                <binding>
+                <command>property-assign</command>
+                <property>fdm/jsbsim/systems/engine/left-starter</property>
+                <value>1</value>
+                </binding>
+            </action>
+        </animation>
+	
+	<animation>
+            <type>rotate</type>            
+            <object-name>Eng1-Inter</object-name>
+            <property>fdm/jsbsim/animation/right-inter-pos</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-30</dep>
+                </entry>
+                <entry>
+                    <ind>1</ind>
+                    <dep>30</dep>
+                </entry>
+            </interpolation>
+            <center>
+                <x-m>0.00475013</x-m>
+                <y-m>0</y-m>
+                <z-m>-0.0160641</z-m>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>translate</type>           
+            <object-name>Eng1-Start-Cmd</object-name>
+            <property>fdm/jsbsim/systems/engine/right-starter</property>
+            <factor>-0.01</factor>
+            <axis>
+                <x>1</x>
+                <y>0</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>pick</type>            
+            <object-name>Eng1-Start-Cmd</object-name>
+            <action>
+                <button>0</button>
+                <binding>
+                <command>property-assign</command>
+                <property>fdm/jsbsim/systems/engine/right-starter</property>
+                <value>1</value>
+                </binding>
+            </action>
+        </animation>
+	
+
+        <text>
+            <name>TurbineStart</name>
+            <type type="string">literal</type>
+            <text type="string">Turbine Start</text>
+            <draw-text type="bool">true</draw-text>
+            <font>Helvetica.txf</font>
+            <character-size type="double">0.032</character-size>
+            <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+            <axis-alignment>yz-plane</axis-alignment>
+            <max-height>0.2</max-height>
+            <max-width>0.32</max-width>
+            <font-resolution>
+                <width type="int">32</width>
+                <height type="int">32</height>
+            </font-resolution>
+            <alignment>center-center</alignment>
+            <offsets>
+                <x-m>0.06</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+    </text>
+
+    <animation>
+        <type>select</type>
+        <object-name>TurbineStart</object-name>
+        <condition>
+            <property>sim/panel-hotspots</property>
+        </condition>
+    </animation>
+
+
+</PropertyList>

@@ -1,0 +1,80 @@
+<PropertyList>
+
+
+    <!--
+    Usable with FlightGear
+    Property of Gerard Robin
+    Copyright License:  CREATIVE COMMON
+    -->
+
+    <path>Models/pilot-out.ac</path>
+
+    <texture-path>Models/TexturefrAA</texture-path>
+
+
+    <offsets>
+            <pitch-deg>0</pitch-deg>
+            <z-m>0</z-m>
+            <x-m>0</x-m>
+    </offsets>
+    
+    
+    <animation>
+        <type>select</type>
+        <object-name>Pilote-Debout</object-name>
+        <condition>
+	    <and>
+		<!--<greater-than>
+		     <property>fdm/jsbsim/simulation/sim-time-sec</property>
+		     <value>10</value>
+		</greater-than>-->
+		<greater-than>
+		    <property>fdm/jsbsim/animation/cockpit-right-door-pos-norm</property>
+		    <value>0.90</value>
+		</greater-than>
+	    </and>
+        </condition>
+    </animation>
+
+    
+
+
+    <animation>
+        <type>translate</type>
+        <object-name>Pilote-Debout</object-name>
+	<property>fdm/jsbsim/gear/unit[0]/compression-ft</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>-0.12</dep>
+            </entry>
+            <entry>
+                <ind>0.17</ind>
+                <dep>0.00</dep>
+            </entry>
+            <entry>
+                <ind>0.250</ind>
+                <dep>0.051</dep>
+            </entry>
+            <entry>
+                <ind>0.50</ind>
+                <dep>0.102</dep>
+            </entry>
+            <entry>
+                <ind>0.750</ind>
+                <dep>0.153</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>0.23</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+        </animation>
+
+
+</PropertyList>

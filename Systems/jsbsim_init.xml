@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<PropertyList>
+
+            <jsbsim>
+                <systems>
+		    <rotor>
+			<clutch-cmd-norm>0</clutch-cmd-norm>
+			<brake-cmd-norm>1</brake-cmd-norm>
+		    </rotor>
+		     <gear>
+			<gear-cmd-norm type="bool">true</gear-cmd-norm>
+		     </gear>
+		     <engine>
+			 <left-engine type="bool">false</left-engine>
+			 <right-engine type="bool">false</right-engine>
+			 <left-cutoff type="bool">true</left-cutoff>
+			 <right-cutoff type="bool">true</right-cutoff>
+		    </engine>
+                </systems>
+                <instruments>
+                    <heading-indicator>
+                        <switch-tacan-dme type="double">0</switch-tacan-dme>
+                        <switch-nav-adf type="double">0</switch-nav-adf>
+                        <nav-switch type="double">0</nav-switch>
+                    </heading-indicator>
+                </instruments>
+		<gear>
+		    <NWS>
+			<engaged type="bool">false</engaged>
+		    </NWS>
+		</gear>
+		<propulsion>
+		     <!-- Real   Proupulsion Two  turboprop but defined as only one engine[0]
+		    Simulate LeftEngine  => ="1">
+		    Simulate RightEngine => ="2">    
+		    Simulate Both Engine => ="3">  -->
+		    <power-eng-active type="double">0</power-eng-active>
+		    <engine n='0'>
+			<cutoff alias="/controls/engines/engine[0]/cutoff"/>
+		    </engine>
+		</propulsion>
+		<fcs>
+		    <rpm-governor-active-norm>0</rpm-governor-active-norm>
+		    <brake-parking-cmd-norm alias="/controls/gear/brake-parking"/>
+		</fcs>
+		<electrical>
+		    <outputs>
+			<adf alias="/systems/electrical/outputs/adf"/>
+			<radar alias="/systems/electrical/outputs/radar"/>
+			<hsi alias="/systems/electrical/outputs/hsi"/>
+			<nav n='0' alias="/systems/electrical/outputs/nav[0]"/>
+			<nav n='1' alias="/systems/electrical/outputs/nav[1]"/>
+			<dme alias="/systems/electrical/outputs/dme"/>
+			<tacan alias="/systems/electrical/outputs/tacan"/>
+			<transponder alias="/systems/electrical/outputs/transponder"/>
+			<comm n='0' alias="/systems/electrical/outputs/comm[0]"/>
+			<comm n='1' alias="/systems/electrical/outputs/comm[1]"/>
+			<gps alias="/systems/electrical/outputs/gps"/>
+			<turn-coordinator alias="/systems/electrical/outputs/turn-coordinator"/>
+			<fuel-pump alias="/systems/electrical/outputs/fuel-pump"/>
+			<instrument-lights alias="/systems/electrical/outputs/instrument-lights"/>
+		    </outputs>
+		</electrical>
+		<animation>		   
+		    <delta-sec  type="double">0</delta-sec>
+		    <cockpit-left-door-pos-cmd type="double">1</cockpit-left-door-pos-cmd>
+		    <cockpit-right-door-pos-cmd type="double">1</cockpit-right-door-pos-cmd>
+		    <left-cabin_door-pos-cmd type="double">0</left-cabin_door-pos-cmd>
+		    <right-cabin_door-pos-cmd type="double">0</right-cabin_door-pos-cmd>
+		    <cockpit-left-door_wd-pos-cmd type="double">0</cockpit-left-door_wd-pos-cmd>
+		    <cockpit-right-door_wd-pos-cmd type="double">0</cockpit-right-door_wd-pos-cmd>
+		    <floor-cabin_door-pos-cmd type="double">0</floor-cabin_door-pos-cmd>
+		</animation>
+            </jsbsim>
+
+</PropertyList>

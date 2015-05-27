@@ -1,0 +1,29 @@
+<PropertyList>
+
+
+    <!--
+        Property of Gerard Robin (C) 2008-2010
+    Copyright License:  CREATIVE COMMON
+    -->
+
+	<path>Models/parachuter-op.ac</path>
+
+        <animation>
+            <type>select</type>
+            <object-name>Parachuter-Op</object-name>
+            <condition>
+                <and>
+                    <equals>
+                        <property>fdm/jsbsim/animation/parachuter-cmd</property>
+                        <value>1</value>
+                    </equals>
+                    <greater-than>
+                        <property>ai/submodels/submodel/count</property>
+                        <value>0</value>
+                    </greater-than>
+                </and>
+            </condition>
+        </animation>
+
+
+</PropertyList>

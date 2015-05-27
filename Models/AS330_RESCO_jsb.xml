@@ -1,0 +1,915 @@
+<PropertyList>
+    <!--
+        Usable with FlightGear
+        Property of Gerard Robin  (C)  2007
+	Maintain grthteam,  https://sites.google.com/site/grtuxhangar
+        Copyright License:  CREATIVE COMMON BY-NC-ND
+        
+-->
+
+
+    <path>pumaAA-base.ac</path>
+
+	<texture-path>./TexturefrAA</texture-path>
+
+
+	<offsets>
+		<pitch-deg>-0.05</pitch-deg>
+		<z-m>0.00</z-m>
+	</offsets>
+	
+	<effect>
+	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectPuma</inherits-from>
+            <object-name>Fuselage</object-name>
+            <object-name>Turbine-Capot</object-name>
+            <object-name>Turbine-Capot-Av</object-name>
+            <object-name>Fuselage-Handle</object-name>
+            <object-name>Turbine-E</object-name>
+            <object-name>Cockpit-Frame-Ext</object-name>
+	    <object-name>GPorte-Ext</object-name>
+            <object-name>DPorte-Ext</object-name>
+        </effect>
+
+
+        <effect>
+	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectPumaOr</inherits-from>
+            <object-name>HGouv</object-name>
+            <object-name>Cockpit-Nose-Or</object-name>
+            <object-name>Train-Capot</object-name>
+        </effect>
+
+
+        <model>
+            <name>Puma-Winch</name>
+            <path>Aircraft/AS330-Puma/Models/Puma-AS330_WinchAA.xml</path>
+            <offsets>
+                <pitch-deg>0</pitch-deg>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>-0.0</z-m>
+            </offsets>
+        </model>
+
+        <animation>
+            <type>shader</type>
+            <shader>chrome</shader>
+            <texture>Aircraft/AS330-Puma/Models/Texturefr/shader.png</texture>
+            <object-name>Cockpit-Vitrage</object-name>
+        </animation>
+
+        <animation>
+            <type>shader</type>
+            <shader>chrome</shader>
+            <texture>Aircraft/AS330-Puma/Models/Texturefr/shader.png</texture>
+            <object-name>Hublots-F</object-name>
+        </animation>
+
+
+
+        <model>
+            <name>Puma-Cabine</name>
+            <path>Aircraft/AS330-Puma/Models/Puma-AS330_Cabine.xml</path>
+            <offsets>
+                <pitch-deg>0</pitch-deg>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>-0.0</z-m>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Puma-Marquage</name>
+            <path>Aircraft/AS330-Puma/Models/Mark/Puma-Marquage.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>-0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+        <!--<animation>
+            <type>select</type>
+            <object-name>Puma-Marquage</object-name>
+            <condition>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </condition>
+        </animation>
+
+        <model>
+            <name>Puma-Marquage_nr</name>
+            <path>Aircraft/AS330-Puma/Models/Mark/Puma-Marquage_nr.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>-0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+        <animation>
+            <type>select</type>
+            <object-name>Puma-Marquage_nr</object-name>
+            <condition>
+                <not>
+                <property>sim/rendering/rembrandt/enabled</property>
+                </not>
+            </condition>
+        </animation>-->
+
+        <model>
+            <name>Puma-Cockpit</name>
+            <path>Aircraft/AS330-Puma/Models/Puma-AS330_Cockpit.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>-0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+        
+
+        <model>
+            <name>CoPilote</name>
+            <path>Aircraft/AS330-Puma/Models/Crew/Puma_Crew.xml</path>
+            <offsets>
+                <pitch-deg>0</pitch-deg>
+                <x-m>0</x-m>		
+                <y-m>0</y-m>		
+                <z-m>-0</z-m>		
+            </offsets>
+        </model>
+        
+        <model>
+            <name>Pilote-Ext</name>
+            <path>Aircraft/AS330-Puma/Models/Crew/Puma-Pilot-Out.xml</path>
+            <offsets>
+                <pitch-deg>0</pitch-deg>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+
+        <animation>
+            <type>select</type>
+            <object-name>Pilote-Ext</object-name>
+            <condition>
+                <and>
+                    <!--<greater-than>
+			<property>fdm/jsbsim/simulation/sim-time-sec</property>
+			<value>10</value>
+		    </greater-than>-->
+                    <greater-than>
+                        <property>fdm/jsbsim/animation/cockpit-right-door-pos-norm</property>
+                        <value>0.90</value>
+                    </greater-than>
+                </and>
+            </condition>
+        </animation>
+
+        <!-- main rotor -->
+
+        <model>
+            <name>Rotor-Tete</name>
+            <path>Aircraft/AS330-Puma/Models/Rotors/Puma-Rotor-Tete.xml</path>
+            <offsets>
+                <x-m>-0.600235</x-m>
+                <y-m>0</y-m>
+                <z-m>2.38227</z-m>
+                <pitch-deg>-4.54</pitch-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Rotor-Pale0</name>
+            <path>Aircraft/AS330-Puma/Models/Rotors/Puma-Rotor-Pale0.xml</path>
+            <offsets>
+                <x-m>-0.600235</x-m>
+                <y-m>0</y-m>
+                <z-m>2.38227</z-m>
+                <pitch-deg>-4.54</pitch-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Rotor-Pale1</name>
+            <path>Aircraft/AS330-Puma/Models/Rotors/Puma-Rotor-Pale1.xml</path>
+            <offsets>
+                <x-m>-0.600235</x-m>
+                <y-m>0</y-m>
+                <z-m>2.38227</z-m>
+                <pitch-deg>-4.54</pitch-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Rotor-Pale2</name>
+            <path>Aircraft/AS330-Puma/Models/Rotors/Puma-Rotor-Pale2.xml</path>
+            <offsets>
+                <x-m>-0.600235</x-m>
+                <y-m>0</y-m>
+                <z-m>2.38227</z-m>
+                <pitch-deg>-4.54</pitch-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Rotor-Pale3</name>
+            <path>Aircraft/AS330-Puma/Models/Rotors/Puma-Rotor-Pale3.xml</path>
+            <offsets>
+                <x-m>-0.600235</x-m>
+                <y-m>0</y-m>
+                <z-m>2.38227</z-m>
+                <pitch-deg>-4.54</pitch-deg>
+            </offsets>
+        </model>
+
+        <animation>
+            <name>Alpha-Sequence</name>
+            <object-name>Rotor-Pale0</object-name>
+            <object-name>Rotor-Pale1</object-name>
+            <object-name>Rotor-Pale2</object-name>
+            <object-name>Rotor-Pale3</object-name>
+            <object-name>Queue-Disc_M</object-name>
+        </animation>
+
+
+        <model>
+            <name>Rotor-Queue</name>
+            <path>Aircraft/AS330-Puma/Models/Rotors/Puma-AS330_Tail-rotor.xml</path>
+            <offsets>
+                <x-m>8.64941</x-m>
+                <y-m>0</y-m>
+                <z-m>1.88219</z-m>
+                <pitch-deg>0</pitch-deg>
+		<roll-deg>-90</roll-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Rotor-Poussiere</name>
+            <path>Aircraft/AS330-Puma/Fx/Rotor-Dust.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>-0.8</z-m>
+                <pitch-deg>0</pitch-deg>
+                <heading-deg>0</heading-deg>
+            </offsets>
+        </model>
+
+
+        
+
+
+
+        <model>
+            <name>Train</name>
+            <path>Aircraft/AS330-Puma/Models/Puma-AS330_Train.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+
+
+        <model>
+            <name>Puma-Rbdt_Lights</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Puma-Rembrandt_Lights.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>-0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+
+        <model>
+            <name>Flash-eff_rb</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Flash-eff_rb.xml</path>
+            <offsets>
+                <x>0</x>
+                <y>0</y>
+                <z>0</z>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Flash-eff</name>
+            <path>Aircraft/AS330-Puma/Models/Lights/Flash-eff.xml</path>
+            <offsets>
+                <x>0</x>
+                <y>0</y>
+                <z>0</z>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+       <!-- <animation>
+            <type>rotate</type>
+            <object-name>Puma-Rbdt_Lights</object-name>
+            <object-name>Flash-eff_rb</object-name>
+            <property>sim/model/light-direction</property>
+            <center>
+                <x-m>-4.69749</x-m>
+                <y-m>0</y-m>
+                <z-m>-1.07681</z-m>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+                <z>0</z>
+            </axis>
+        </animation>
+-->
+
+
+
+        <model>
+            <name>Puma-Rbdt_Beacon</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Puma-Rembrandt_Beacon.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>-0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+        <!--<model>
+            <name>Puma-Rbdt_Beacon</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Puma-Rembrandt_Beacon-bottom.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>-0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>-->
+
+        <model>
+            <name>Puma-Rbdt_Green-side</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Puma-Rembrandt_Green-side.xml</path>
+            <offsets>
+                <x-m>0.302367</x-m>
+                <y-m>1.57263</y-m>
+                <z-m>-0.658496</z-m>
+            </offsets>
+        </model>
+
+        <model>
+            <name>DFVert</name>
+            <path>Aircraft/AS330-Puma/Models/Lights/FVert.xml</path>
+            <offsets>
+                <x-m>0.302367</x-m>
+                <y-m>1.57263</y-m>
+                <z-m>-0.658496</z-m>
+                <heading-deg>0</heading-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Puma-Rbdt_Green-bottom</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Puma-Rembrandt_Green-bottom.xml</path>
+            <offsets>
+                <x-m>0.539499</x-m>
+                <y-m>1.59548</y-m>
+                <z-m>-1.22</z-m><!---1.23428-->
+            </offsets>
+        </model>
+
+        <model>
+            <name>Puma-Rbdt_Red-side</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Puma-Rembrandt_Red-side.xml</path>
+            <offsets>
+                <x-m>0.302367</x-m>
+                <y-m>-1.57263</y-m>
+                <z-m>-0.658496</z-m>
+            </offsets>
+        </model>
+
+        <model>
+            <name>GFRouge</name>
+            <path>Aircraft/AS330-Puma/Models/Lights/FRouge.xml</path>
+            <offsets>
+                <x-m>0.302367</x-m>
+                <y-m>-1.57263</y-m>
+                <z-m>-0.658496</z-m>
+                <heading-deg>0</heading-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Puma-Rbdt_Red-bottom</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Puma-Rembrandt_Red-bottom.xml</path>
+            <offsets>
+                <x-m>0.539499</x-m>
+                <y-m>-1.59548</y-m>
+                <z-m>-1.21</z-m>
+            </offsets>
+        </model>
+
+        <model>
+            <name>TFBlanc</name>
+            <path>Aircraft/AS330-Puma/Models/Lights/FBlanc.xml</path>
+            <offsets>
+                <x-m>9.62</x-m><!--9.74106-->
+                <y-m>0</y-m>
+                <z-m>1.90001</z-m>
+                <heading-deg>0</heading-deg>
+            </offsets>
+        </model>
+
+        <model>
+            <name>Puma-Rbdt_White-top</name>
+            <path>Aircraft/AS330-Puma/Models/Remb/Puma-Rembrandt_White-top.xml</path>
+            <offsets>
+                <x-m>9.63591</x-m>
+                <y-m>0</y-m>
+                <z-m>1.87144</z-m>
+            </offsets>
+        </model>
+
+
+        <animation>
+            <type>select</type>
+            <object-name>Puma-Rbdt_Lights</object-name>
+            <condition>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Flash-eff_rb</object-name>
+            <condition>
+                <and>
+                    <property>fdm/jsbsim/electrical/landing-light</property>
+                   <!-- <greater-than>
+                        <property>sim/time/sun-angle-rad</property>
+                        <value>1.40</value>
+                    </greater-than>-->
+                    <property>sim/rendering/rembrandt/enabled</property>
+                </and>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Flash-eff</object-name>
+            <condition>
+                <and>
+                    <property>fdm/jsbsim/electrical/landing-light</property>
+                   <!-- <greater-than>
+                        <property>sim/time/sun-angle-rad</property>
+                        <value>1.40</value>
+                    </greater-than>-->
+                    <not>
+                        <property>sim/rendering/rembrandt/enabled</property>
+                    </not>
+                </and>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Puma-Rbdt_Beacon</object-name>
+            <condition>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Puma-Rbdt_Green-side</object-name>
+            <object-name>Puma-Rbdt_Green-bottom</object-name>
+            <condition>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </condition>
+        </animation>
+
+
+        <animation>
+            <type>select</type>
+            <object-name>DFVert</object-name>
+            <condition>
+                <not>
+                    <property>sim/rendering/rembrandt/enabled</property>
+                </not>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Puma-Rbdt_Red-side</object-name>
+            <object-name>Puma-Rbdt_Red-bottom</object-name>
+            <condition>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>GFRouge</object-name>
+            <condition>
+                <not>
+                    <property>sim/rendering/rembrandt/enabled</property>
+                </not>
+            </condition>
+        </animation>
+
+        <animation>
+            <type>select</type>
+            <object-name>Puma-Rbdt_White-top</object-name>
+            <condition>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </condition>
+        </animation>
+
+
+        <animation>
+            <type>select</type>
+            <object-name>TFBlanc</object-name>
+            <condition>
+                <not>
+                    <property>sim/rendering/rembrandt/enabled</property>
+                </not>
+            </condition>
+        </animation>
+
+
+
+
+
+
+
+        
+
+
+        <animation>
+            <type>rotate</type>
+            <object-name>Cockpit-LeftDoor-Frame-Ext</object-name>
+            <object-name>Cockpit-LeftDoor-Frame-Int</object-name>
+            <object-name>Left-Pilot_Door_Window1</object-name>
+            <object-name>Left-Pilot_Door_Window1-Frame</object-name>
+            <object-name>Left-Pilot_Door_Window2</object-name>
+            <object-name>Left-Pilot_Door_Window3</object-name>
+            <property>fdm/jsbsim/animation/cockpit-left-door-pos-norm</property>
+            <!--<factor>150</factor>-->
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.25</ind>
+                    <dep>0</dep>
+                </entry>
+                <entry>
+                    <ind>0.75</ind>
+                    <dep>150</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>150</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x1-m>-3.9039</x1-m>
+                <y1-m>-0.846428</y1-m>
+                <z1-m>-0.0509801</z1-m>
+                <x2-m>-3.9039</x2-m>
+                <y2-m>-0.89914</y2-m>
+                <z2-m>-0.667607</z2-m>
+            </axis>
+        </animation>
+
+         <animation>
+            <type>rotate</type>
+            <object-name>Left-Pilot_Door_Window1</object-name>
+            <object-name>Left-Pilot_Door_Window1-Frame</object-name>
+	    <property>fdm/jsbsim/animation/cockpit-left-door_wd-pos-norm</property>
+            <factor>6</factor>
+            <center>
+                <x-m>-2.95509</x-m>
+                <y-m>2.57687</y-m>
+                <z-m></z-m>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>1</z>
+            </axis>
+        </animation>
+
+
+        <animation>
+            <type>pick</type>
+            <object-name>Left-Pilot_Door_Window1-Frame</object-name>
+            <action>
+                <button>0</button>
+                <repeatable type="bool">true</repeatable>
+                <binding>
+                    <command>property-adjust</command>
+		    <property>fdm/jsbsim/animation/cockpit-left-door_wd-pos-cmd</property>                    
+                    <step>0.25</step>
+                    <min>0</min>
+                    <max>1</max>
+                </binding>
+            </action>
+            <action>
+                <button>1</button>
+                <repeatable type="bool">true</repeatable>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>fdm/jsbsim/animation/cockpit-left-door_wd-pos-cmd</property>                    
+                    <step>-0.25</step>
+                    <min>0</min>
+                    <max>1</max>
+                </binding>
+            </action>
+        </animation>
+
+
+        <!--<effect>
+            <inherits-from>Aircraft/AS330-Puma/Effets/reflectPuma</inherits-from>
+            <object-name>Left-Pilot_Door</object-name>
+        </effect>-->
+
+        <animation>
+            <type>shader</type>
+            <shader>chrome</shader>
+            <texture>Aircraft/AS330-Puma/Models/Texturefr/shader.png</texture>
+            <object-name>Left-Pilot_Door_Window1</object-name>
+            <object-name>Left-Pilot_Door_Window2</object-name>
+            <object-name>Left-Pilot_Door_Window3</object-name>
+        </animation>
+
+
+
+        <animation>
+            <type>rotate</type>
+            <object-name>Cockpit-RightDoor-Frame-Ext</object-name>
+            <object-name>Cockpit-RightDoor-Frame-Int</object-name>
+            <object-name>Right-Pilot_Door_Window1</object-name>
+            <object-name>Right-Pilot_Door_Window1-Frame</object-name>
+            <object-name>Right-Pilot_Door_Window2</object-name>
+            <object-name>Right-Pilot_Door_Window3</object-name>
+            <property>fdm/jsbsim/animation/cockpit-right-door-pos-norm</property>
+            <!--<factor>-150</factor>-->
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.25</ind>
+                    <dep>0</dep>
+                </entry>
+                <entry>
+                    <ind>0.75</ind>
+                    <dep>0</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>-150</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x1-m>-3.9039</x1-m>
+                <y1-m>0.846428</y1-m>
+                <z1-m>-0.0509801</z1-m>
+                <x2-m>-3.9039</x2-m>
+                <y2-m>0.89914</y2-m>
+                <z2-m>-0.667607</z2-m>
+            </axis>
+        </animation>
+
+
+        <!--<effect>
+            <inherits-from>Aircraft/AS330-Puma/Effets/reflectPuma</inherits-from>
+            <object-name>Right-Pilot_Door</object-name>
+        </effect>-->
+         <animation>
+            <type>rotate</type>
+            <object-name>Right-Pilot_Door_Window1</object-name>
+            <object-name>Right-Pilot_Door_Window1-Frame</object-name>
+            <property>fdm/jsbsim/animation/cockpit-right-door_wd-pos-norm</property>
+            <factor>-6</factor>
+            <center>
+                <x-m>-2.95509</x-m>
+                <y-m>-2.57687</y-m>
+                <z-m></z-m>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>1</z>
+            </axis>
+        </animation>
+
+
+        <animation>
+            <type>pick</type>
+            <object-name>Right-Pilot_Door_Window1-Frame</object-name>
+            <action>
+                <button>0</button>
+                <repeatable type="bool">true</repeatable>
+                <binding>
+                    <command>property-adjust</command>
+                     <property>fdm/jsbsim/animation/cockpit-right-door_wd-pos-cmd</property>                    
+                    <step>0.25</step>
+                    <min>0</min>
+                    <max>1</max>
+                </binding>
+            </action>
+            <action>
+                <button>1</button>
+                <repeatable type="bool">true</repeatable>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>fdm/jsbsim/animation/cockpit-right-door_wd-pos-cmd</property>                    
+                    <step>-0.25</step>
+                    <min>0</min>
+                    <max>1</max>
+                </binding>
+            </action>
+        </animation>
+
+
+        <animation>
+            <type>shader</type>
+            <shader>chrome</shader>
+            <texture>Aircraft/AS330-Puma/Models/Texturefr/shader.png</texture>
+            <object-name>Right-Pilot_Door_Window1</object-name>
+            <object-name>Right-Pilot_Door_Window2</object-name>
+            <object-name>Right-Pilot_Door_Window3</object-name>
+        </animation>
+
+
+        <animation>
+            <type>translate</type>
+            <object-name>GPorte-Ext</object-name>
+            <object-name>GPorte-Dbl</object-name>
+            <object-name>GPorte-Poignee</object-name>
+            <object-name>GPorte-Hublots-Struct</object-name>
+            <object-name>GPorte-Hublots</object-name>
+            <property>fdm/jsbsim/animation/left-cabin_door-pos-norm</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.05</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>-1.45</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x>1</x>
+                <y>0</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>translate</type>
+            <object-name>GPorte-Ext</object-name>
+            <object-name>GPorte-Dbl</object-name>
+            <object-name>GPorte-Poignee</object-name>
+            <object-name>GPorte-Hublots-Struct</object-name>
+            <object-name>GPorte-Hublots</object-name>
+            <property>fdm/jsbsim/animation/left-cabin_door-pos-norm</property>
+
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.40</ind>
+                    <dep>0.05</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>0.05</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x>0</x>
+                <y>-1</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>shader</type>
+            <shader>chrome</shader>
+            <texture>Aircraft/AS330-Puma/Models/Texturefr/shader.png</texture>
+            <object-name>GPorte-Hublots</object-name>
+        </animation>
+
+        <effect>
+            <inherits-from>Aircraft/AS330-Puma/Effets/reflectPuma</inherits-from>
+            <object-name>GPorte-Ext</object-name>
+        </effect>
+
+        <animation>
+            <type>translate</type>
+            <object-name>DPorte-Ext</object-name>
+            <object-name>DPorte-Dbl</object-name>
+            <object-name>DPorte-Poignee</object-name>
+            <object-name>DPorte-Hublots-Struct</object-name>
+            <object-name>DPorte-Hublots</object-name>
+            <property>fdm/jsbsim/animation/right-cabin_door-pos-norm</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.05</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.40</ind>
+                    <dep>-1.45</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>-1.45</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x>1</x>
+                <y>0</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>translate</type>
+            <object-name>DPorte-Ext</object-name>
+            <object-name>DPorte-Dbl</object-name>
+            <object-name>DPorte-Poignee</object-name>
+            <object-name>DPorte-Hublots-Struct</object-name>
+            <object-name>DPorte-Hublots</object-name>
+            <property>fdm/jsbsim/animation/right-cabin_door-pos-norm</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.40</ind>
+                    <dep>0.05</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>0.05</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+
+        <animation>
+            <type>shader</type>
+            <shader>chrome</shader>
+            <texture>Aircraft/AS330-Puma/Models/Texturefr/shader.png</texture>
+            <object-name>DPorte-Hublots</object-name>
+        </animation>
+
+
+        <effect>
+            <inherits-from>Aircraft/AS330-Puma/Effets/reflectPuma</inherits-from>
+            <object-name>DPorte-Ext</object-name>
+        </effect>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PropertyList>

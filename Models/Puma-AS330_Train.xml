@@ -1,0 +1,344 @@
+<PropertyList>
+    <!--
+        Usable with FlightGear
+        Property of Gerard Robin  (C)  2007
+        Copyright License:  CREATIVE COMMON BY-NC-ND
+-->
+
+
+    <path>puma-train.ac</path>
+
+	<texture-path>Texturefr</texture-path>
+
+
+	<offsets>
+		<pitch-deg>0</pitch-deg>
+		<z-m>0.0</z-m>
+	</offsets>
+
+
+
+
+       <!-- ==============Train Avant====pos [2] and [3]================-->
+
+        <animation>
+            <type>rotate</type>
+            <object-name>AVTrain</object-name>
+            <property>sim/multiplay/generic/float[6]</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-60.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.25</ind>
+                    <dep>-60.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.45</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+            </interpolation>
+            <center>
+                <x-m>-3.53222</x-m>
+                <y-m>0</y-m>
+                <z-m>-0.901099</z-m>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+                <z>0</z>
+            </axis>
+ 	</animation>
+
+	<animation>
+		<type>rotate</type>
+			<object-name>AVTrain</object-name>
+                        <property>fdm/jsbsim/fcs/steer-pos-deg[2]</property>
+			<factor>1</factor>
+			<condition>
+				<equals>
+                                    <property>sim/multiplay/generic/float[6]</property>
+				<value>1.000</value>
+				</equals>
+			</condition>
+			<center>
+                                <x-m>-3.53222</x-m>
+				<y-m>0.00</y-m>
+				<z-m>0</z-m>
+			</center>
+			<axis>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+			</axis>
+ 	</animation>
+
+        <animation>
+            <type>translate</type>
+            <object-name>AVTrain-Roue</object-name>
+            <object-name>AVTrain-Axe</object-name>
+            <object-name>AVTrain-JambeMobile</object-name>
+            <object-name>AVTrain-BielleInf</object-name>
+            <object-name>AVTrain-BielleSup</object-name>
+	    <property>fdm/jsbsim/gear/unit[2]/compression-ft</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-0.12</dep>
+                </entry>
+                <entry>
+                    <ind>0.17</ind>
+                    <dep>0.00</dep>
+                </entry>
+                <entry>
+                    <ind>0.250</ind>
+                    <dep>0.051</dep>
+                </entry>
+                <entry>
+                    <ind>0.50</ind>
+                    <dep>0.102</dep>
+                </entry>
+                <entry>
+                    <ind>0.750</ind>
+                    <dep>0.153</dep>
+                </entry>
+                <entry>
+                    <ind>1</ind>
+                    <dep>0.23</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>1</z>
+            </axis>
+        </animation>
+
+
+        <animation>
+            <type>spin</type>
+            <object-name>AVTrain-Roue</object-name>
+            <property>fdm/jsbsim/gear/unit[2]/wheel-speed-fps</property>
+            <factor>-10.00</factor>
+            <center>
+                <x-m>-3.53334</x-m>
+                <y-m>0.0</y-m>
+                <z-m>-1.70095</z-m>
+            </center>
+            <axis>
+                <x>0.0</x>
+                <y>1.0</y>
+                <z>0.0</z>
+            </axis>
+        </animation>
+
+        <!-- =================Train Gauche======pos [0]===============-->
+
+
+
+        <animation>
+            <type>rotate</type>
+            <object-name>GTrain</object-name>
+            <property>sim/multiplay/generic/float[6]</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-85.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.25</ind>
+                    <dep>-85.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.75</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+            </interpolation>
+            <center>
+                <x-m>0.686835</x-m>
+                <y-m>0</y-m>
+                <z-m>-1.08189</z-m>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+                <z>0</z>
+            </axis>
+ 	</animation>
+
+        <animation>
+            <type>translate</type>
+            <object-name>GTrain-Roue</object-name>
+            <object-name>GTrain-Axe</object-name>
+            <object-name>GTrain-JambeMobile</object-name>
+            <object-name>GTrain-BielleInf</object-name>
+            <object-name>GTrain-BielleSup</object-name>
+	    <property>fdm/jsbsim/gear/unit[0]/compression-ft</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-0.12</dep>
+                </entry>
+                <entry>
+                    <ind>0.17</ind>
+                    <dep>0.00</dep>
+                </entry>
+                <entry>
+                    <ind>0.250</ind>
+                    <dep>0.051</dep>
+                </entry>
+                <entry>
+                    <ind>0.50</ind>
+                    <dep>0.102</dep>
+                </entry>
+                <entry>
+                    <ind>0.750</ind>
+                    <dep>0.153</dep>
+                </entry>
+                <entry>
+                    <ind>1</ind>
+                    <dep>0.23</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>1</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>spin</type>
+            <object-name>GTrain-Roue</object-name>
+            <property>fdm/jsbsim/gear/unit[0]/wheel-speed-fps</property>
+            <factor>-10.00</factor>
+            <center>
+                <x-m>0.684198</x-m>
+                <y-m>-1.17156</y-m>
+                <z-m>-1.70504</z-m>
+            </center>
+            <axis>
+                <x>0.0</x>
+                <y>1.0</y>
+                <z>0.0</z>
+            </axis>
+        </animation>
+
+        <!-- ================Train Droit======pos [1]]================-->
+
+
+
+        <animation>
+            <type>rotate</type>
+            <object-name>DTrain</object-name>
+            <property>sim/multiplay/generic/float[6]</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-85.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.25</ind>
+                    <dep>-85.0</dep>
+                </entry>
+                <entry>
+                    <ind>0.65</ind>
+                    <dep>0.0</dep>
+                </entry>
+                <entry>
+                    <ind>1.0</ind>
+                    <dep>0.0</dep>
+                </entry>
+            </interpolation>
+            <center>
+                <x-m>0.686835</x-m>
+                <y-m>0</y-m>
+                <z-m>-1.08189</z-m>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+                <z>0</z>
+            </axis>
+        </animation>
+
+
+        <animation>
+            <type>translate</type>
+            <object-name>DTrain-Roue</object-name>
+            <object-name>DTrain-Axe</object-name>
+            <object-name>DTrain-JambeMobile</object-name>
+            <object-name>DTrain-BielleInf</object-name>
+            <object-name>DTrain-BielleSup</object-name>
+	    <property>fdm/jsbsim/gear/unit[1]/compression-ft</property>
+            <interpolation>
+                <entry>
+                    <ind>0.0</ind>
+                    <dep>-0.12</dep>
+                </entry>
+                <entry>
+                    <ind>0.17</ind>
+                    <dep>0.00</dep>
+                </entry>
+                <entry>
+                    <ind>0.250</ind>
+                    <dep>0.051</dep>
+                </entry>
+                <entry>
+                    <ind>0.50</ind>
+                    <dep>0.102</dep>
+                </entry>
+                <entry>
+                    <ind>0.750</ind>
+                    <dep>0.153</dep>
+                </entry>
+                <entry>
+                    <ind>1</ind>
+                    <dep>0.23</dep>
+                </entry>
+            </interpolation>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>1</z>
+            </axis>
+        </animation>
+
+
+
+
+        <animation>
+            <type>spin</type>
+            <object-name>DTrain-Roue</object-name>
+            <property>fdm/jsbsim/gear/unit[1]/wheel-speed-fps</property>
+            <factor>-10.00</factor>
+            <center>
+                <x-m>0.684198</x-m>
+                <y-m>1.17156</y-m>
+                <z-m>-1.70504</z-m>
+            </center>
+            <axis>
+                <x>0.0</x>
+                <y>1.0</y>
+                <z>0.0</z>
+            </axis>
+        </animation>
+
+
+
+
+
+
+
+
+
+</PropertyList>

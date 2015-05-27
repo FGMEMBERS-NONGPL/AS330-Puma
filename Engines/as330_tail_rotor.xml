@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<rotor name="as330_tail_rotor">
+
+    <diameter unit="M">                  3.12 </diameter>
+    <numblades>                             5 </numblades>
+     <sense>1</sense>
+    <gearratio>     1.537 </gearratio>
+    <nominalrpm>                     1301.4</nominalrpm>  <!--rpm 2000-->
+    <minrpm>20</minrpm>
+    <maxrpm>1500</maxrpm>
+    <chord unit="M">                     0.18</chord>
+    <flappingmoment unit="SLUG*FT2">     54 </flappingmoment>
+    <liftcurveslope>                      5.7 </liftcurveslope>
+    <twist>                               0.0 </twist>
+    <massmoment>                        16 </massmoment>
+    <tiplossfactor>                       1.0 </tiplossfactor>
+    <inflowlag> 0.024  </inflowlag>
+    <hingeoffset unit="FT">             0.015 </hingeoffset>
+
+    <ExternalRPM> 0 </ExternalRPM>
+    <controlmap> TAIL </controlmap>
+
+</rotor>
+

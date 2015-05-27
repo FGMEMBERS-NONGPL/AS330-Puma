@@ -1,0 +1,76 @@
+<PropertyList>
+
+
+    <!--
+    Usable with FlightGear
+    Property of Gerard Robin
+    Copyright License:  CREATIVE COMMON-V2
+    -->
+    <!--                   Auteur :      Gerard ROBIN            CREATIVE COMMON-V2  COPYRIGHT-->
+	<path>Models/puma-rotor-tete.ac</path>
+
+	<texture-path>Models/Textures</texture-path>
+        <offsets>
+            <heading-deg>0</heading-deg>
+        </offsets>
+
+       <!-- <animation>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>999</value>
+                    </equals>
+            </condition>
+		<type>select</type>
+                <object-name>Gabarit-Pose</object-name>
+ 	</animation>-->
+
+
+        <animation>
+		<type>rotate</type>
+                <object-name>Rotor-Tete</object-name>
+                <property>sim/multiplay/generic/float[0]</property>
+		<factor>1</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+	</animation>
+
+        <animation>
+                <condition>
+			<equals>
+				<property>controls/flight/wing-fold</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<type>rotate</type>
+                <object-name>Rotor-Tete</object-name>
+		<property>controls/rotor/blade0-fold-pos</property>
+		<factor>-1</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+
+
+
+
+
+
+
+
+</PropertyList>

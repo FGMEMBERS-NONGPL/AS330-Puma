@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!--
+    usable with flightgear or JSBSim stand-alone
+    COPYRIGHT gerard robin  23-03-2010
+
+
+
+    Replace FlightGear_generic-electric.xml file
+-->
+
+<system name="electrical-fdm-cust">
+
+    <property value="0">electrical/supplier/emergency-on</property>
+    <property value="0">electrical/supplier/external-power</property>
+    <property value="0">electrical/propulsion/engine[0]/fuel-pump</property>
+    
+    <property value="0">electrical/switch/battery</property>
+    <property value="0">electrical/switch/alternator</property>
+    
+    <property value="0">systems/engine/left-engine-rpm</property>
+    <property value="0">systems/engine/right-engine-rpm</property>
+
+<channel name="electrical-custom">
+    
+      
+       <!--switch-->
+       <switch name="electrical/supplier/battery-on">
+           <default value="0"/>
+           <test  logic="AND" value="1">
+              electrical/switch/battery   == 1
+	      systems/sinking/electrical != 0
+           </test>
+	   <output>electrical/propulsion/engine[0]/master-bat</output>
+        </switch>
+
+        <switch name="electrical/supplier/alternator-on">
+            <default value="0"/>
+            <test  logic="AND" value="1">
+               propulsion/engine[0]/n1 gt 20
+	       electrical/switch/alternator  == 1
+	        systems/sinking/electrical != 0
+            </test>
+	    <output>electrical/propulsion/engine[0]/master-alt</output>
+        </switch>
+	
+	<!--Main Alternators Amperes   a guess-->
+	<scheduled_gain name="electrical/supplier/alternator/amp0">
+	    <input>electrical/switch/alternator</input>
+            <table>
+		<independentVar>systems/engine/left-engine-rpm</independentVar>
+                <tableData>
+                    0.00	        0.00
+		    400		0.00
+                    1000              20
+                    2500	        120
+                </tableData>
+            </table>
+        </scheduled_gain>
+	
+	<scheduled_gain name="electrical/supplier/alternator/amp1">
+	    <input>electrical/switch/alternator</input>
+            <table>
+		<independentVar>systems/engine/right-engine-rpm</independentVar>
+                <tableData>
+                    0.00	        0.00
+		    400		0.00
+                    1000              20
+                    2500	        120
+                </tableData>
+            </table>
+        </scheduled_gain>
+
+        <switch name="electrical/supplier/external-on">
+            <default value="0"/>
+            <test  logic="AND" value="1">
+		electrical/supplier/external-power  == 1
+                electrical/supplier/alternator-on == 0
+                electrical/supplier/emergency-on == 0
+		 systems/sinking/electrical != 0
+            </test>
+        </switch>
+	
+	
+	 <kinematic name="electrical/master-switch-lock">
+            <input>animation/electrical-master-switch</input>
+            <traverse>
+                <setting>
+                    <position>0</position>
+                    <time>0</time>
+                </setting>
+                <setting>
+                    <position>1</position>
+                    <time>0.5</time>
+                </setting>
+            </traverse>
+	    <output>electrical/switch/master</output>
+        </kinematic>
+
+
+    </channel>
+
+
+</system>

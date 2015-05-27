@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<!--
+    Usable with FlightGear
+    Property of Gerard Robin  12-12-2005
+    Copyright License:  CREATIVE COMMON
+-->
+<PropertyList>
+
+ <path>Models/puma-mag-compass.ac</path>
+ <texture-path>Models/Textures</texture-path>
+
+ 	<animation>
+		<type>noshadow</type>
+		<object-name>mag-compass</object-name>
+	</animation>
+
+	<animation include="Instrument-Light4.xml">
+		<object-name>Aiguille</object-name>
+	</animation>
+
+	<animation include="Instrument-Light3.xml">
+		<object-name>Cadran</object-name>
+	</animation>
+	
+	 <model>
+            <name>Light-Bezel_vtpt-S51</name>
+            <path>Aircraft/AS330-Puma/Instruments/Light-Bezel_vtpt-S51.xml</path>
+            <offsets>
+                <x-m>0.035</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+
+        <animation>
+            <type>select</type>
+            <object-name>Light-Bezel_vtpt-S51</object-name>
+            <condition>
+                    <property>sim/rendering/rembrandt/enabled</property>
+            </condition>
+        </animation>
+
+
+        <effect>
+            <inherits-from>Effects/model-transparent</inherits-from>
+            <object-name>glass</object-name>
+        </effect>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Cadran</object-name>
+		<property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
+		<axis>
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>1.0</z>
+		</axis>
+	</animation>
+
+</PropertyList>

@@ -1,0 +1,148 @@
+Group {
+  DataVariance DYNAMIC
+  name "rotor.osg"
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_children 3
+  osgParticle::ModularEmitter {
+    DataVariance STATIC
+    nodeMask 0xffffffff
+    cullingActive FALSE
+    osgParticle::ParticleSystem {
+      UniqueID ParticleSystem_0
+      DataVariance DYNAMIC
+      StateSet {
+        DataVariance STATIC
+        rendering_hint TRANSPARENT_BIN
+        renderBinMode USE
+        binNumber 1
+        binName DepthSortedBin
+        GL_LIGHTING ON
+        GL_BLEND ON
+        Material {
+          DataVariance STATIC
+          ColorMode OFF
+          ambientColor 0 0 0 0
+          diffuseColor 0.1 0.1 0.1 1
+          specularColor FRONT 0 0 0 0
+          specularColor BACK  0 0 0 0
+          emissionColor FRONT 0 0 0 0
+          emissionColor BACK  0 0 0 0
+          shininess FRONT 0
+          shininess BACK  0
+        }
+        BlendFunc {
+          DataVariance STATIC
+          source SRC_ALPHA
+          destination ONE_MINUS_SRC_ALPHA
+        }
+        textureUnit 0 {
+          GL_TEXTURE_2D ON
+          Texture2D {
+            DataVariance STATIC
+            file "particle.png"
+            wrap_s CLAMP
+            wrap_t CLAMP
+            wrap_r CLAMP
+            min_filter LINEAR
+            mag_filter LINEAR
+            maxAnisotropy 1
+            borderColor 0.3 0.3 0.3 0.4
+            borderWidth 1
+            useHardwareMipMapGeneration TRUE
+            unRefImageDataAfterApply TRUE
+            internalFormatMode USE_IMAGE_DATA_FORMAT
+            resizeNonPowerOfTwo TRUE
+            shadowComparison FALSE
+            shadowCompareFunc GL_LEQUAL
+            shadowTextureMode GL_LUMINANCE
+          }
+          TexEnv {
+            DataVariance STATIC
+            mode MODULATE
+          }
+        }
+      }
+      supportsDisplayList FALSE
+      useDisplayList FALSE
+      useVertexBufferObjects FALSE
+      particleAlignment BILLBOARD
+      particleScaleReferenceFrame WORLD_COORDINATES
+      alignVectorX 1 0 0
+      alignVectorY 0 1 0
+      useVertexArray FALSE
+      useShaders FALSE
+      doublePassRendering FALSE
+      frozen FALSE
+      freezeOnCull FALSE
+      defaultBoundingBox -1 -1 -1 1 1 1
+      sortMode NO_SORT
+      visibilityDistance -1
+      particleTemplate {
+        shape QUAD
+        lifeTime 1
+        sizeRange 0.007 0.014
+        alphaRange 0.4 0.95
+        colorRange 1 1 1 1 1 1 1 1
+        position 0 0 0
+        velocity 0 0 0
+        angle 0 0 0
+        angularVelocity 0 0 0
+        radius 0.2
+        mass 0.1
+        textureTile 1 1 2
+        sizeInterpolator {
+          osgParticle::LinearInterpolator {
+          }
+        }
+        alphaInterpolator {
+          osgParticle::LinearInterpolator {
+          }
+        }
+        colorInterpolator {
+          osgParticle::LinearInterpolator {
+          }
+        }
+      }
+    }
+    enabled TRUE
+    referenceFrame ABSOLUTE
+    endless TRUE
+    lifeTime 0
+    startTime 0
+    currentTime 0
+    resetTime 5
+    useDefaultTemplate TRUE
+    osgParticle::RandomRateCounter {
+      DataVariance DYNAMIC
+      rateRange 128 128
+    }
+    osgParticle::SectorPlacer {
+      DataVariance DYNAMIC
+      center 0 0 0
+      radiusRange 0.5 1
+      phiRange -1 1
+    }
+    osgParticle::RadialShooter {
+      DataVariance DYNAMIC
+      thetaRange -3.14159 3.14159
+      phiRange -1 1
+      initialSpeedRange 4 2
+      initialRotationalSpeedRange 0 0 0 0 0 0
+    }
+  }
+  osgParticle::ParticleSystemUpdater {
+    DataVariance DYNAMIC
+    nodeMask 0xffffffff
+    cullingActive FALSE
+    Use ParticleSystem_0
+  }
+  Geode {
+    DataVariance STATIC
+    name "rotor-dust"
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    num_drawables 1
+    Use ParticleSystem_0
+  }
+}

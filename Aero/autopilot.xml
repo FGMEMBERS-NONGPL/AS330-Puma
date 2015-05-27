@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+
+<!-- ap template partly done from c172ap -->
+
+<autopilot name="autopilot">       
+  
+<!--<property>ap/heading_setpoint</property>
+<property>ap/altitude_setpoint</property>-->
+
+    <!--<property vaue="0">ap/yaw_hold</property>
+    <property vaue="0">ap/yaw_setpoint</property>-->
+  
+    <property value="0.5"> ap/hdg-roll-err-c1 </property>
+    <property value="6.0"> ap/roll-pid-kp </property>
+    <property value="0.13"> ap/roll-pid-ki </property>
+    <property value="6.0"> ap/roll-pid-kd </property>
+    
+    <property value="0.5"> ap/yaw-err-c1 </property>
+    <property value="0.1"> ap/yaw-pid-kp </property>
+    <property value="0.000"> ap/yaw-pid-ki </property>
+    <property value="0.02"> ap/yaw-pid-kd </property>
+    
+    
+    <property value="1">ap/altitude-err-c1</property> 
+    <property value="0.00001">ap/altitude-pid-ki</property> 
+    <property value="0.1">ap/altitude-pid-kp</property>   
+    <property value="0.13">ap/altitude-pid-kd</property>  
+    
+   
+   
+  
+  <!--<property value="1">ap/aoa-err-c1</property>
+  <property value="7.1">ap/aoa-pid-kp</property>
+  <property value="0.00">ap/aoa-pid-ki</property>
+  <property value="5.4">ap/aoa-pid-kd</property>    
+  -->
+ 
+    
+    <!--========Instrument========Heading======================-->
+	<channel name="autopilot-heading-switch">    
+	    
+	</channel>
+	
+	<!--====Instrument========Altitude====================-->
+	
+	<property value="0">systems/autopilot/display-trigger</property>
+	
+	
+	
+	<channel name="autopilot-altitude-switch">
+	
+     <!--===============On Line Message====================-->
+
+      
+
+       <kinematic name="systems/autopilot/display-timing">
+           <input>systems/autopilot/display-trigger</input>
+           <traverse>
+               <setting>
+                   <position>0</position>
+                   <time>0</time>
+               </setting>
+               <setting>
+                   <position>1</position>
+                   <time>3</time>
+               </setting>
+           </traverse>
+       </kinematic>
+
+       <switch name="systems/autopilot/displaySW">
+           <default value="systems/autopilot/display-trigger"/>
+           <test  logic="AND" value="0">
+               systems/autopilot/display-timing == 1
+           </test>           
+           <output>systems/autopilot/display-trigger</output>
+        </switch>
+	
+	
+     </channel> 
+     
+     
+     
+     <!--========Instrument========APC======================-->
+     
+     <!--<channel name="APC">
+	 
+	<switch name="instruments/free-glide-sw">
+	    <default value="ap/aoa_hold"/>
+	    <test logic="AND" value="1">		
+		instruments/apc/engage-cmd == 1
+		/instrumentation/heading-indicator/nav-switch != 2
+		/instrumentation/heading-indicator/switch-tacan-acls == 1
+	    </test>
+	    <output>ap/aoa_hold</output>
+	</switch>		
+	
+
+    </channel>-->
+    
+<!--==============================================-->
+
+    <property value="0">ap/climb_cmd_h-dot</property>
+    <property value="10">ap/climb_k</property>
+    
+<channel name="Altitude_hold-climb-descent">    
+    
+   <!-- climb/descent-->
+  
+  <summer name="ap/altitude_setpoint_climb">
+    <input> position/h-sl-ft </input>
+    <input>ap/climb_k</input>
+  </summer>
+  
+   <summer name="ap/altitude_setpoint_descent">
+    <input> position/h-sl-ft </input>
+    <input>-ap/climb_k</input>
+  </summer>
+  
+  
+  <switch name="ap/climb_hold">
+    <default value="0"/>
+    <test logic="OR" value="1">
+	ap/climb_cmd_h-dot GT 0
+	ap/climb_cmd_h-dot LT 0
+    </test>	
+  </switch>
+  
+  
+   <switch name="fcs/position-h-sl-ft">
+    <default value="position/h-sl-ft"/>
+    <test logic="AND" value="ap/altitude_setpoint_climb">
+      ap/climb_hold == 1         
+      ap/climb_cmd_h-dot GT 0
+    </test>
+    <test logic="AND" value="ap/altitude_setpoint_descent">
+      ap/climb_hold == 1   
+      ap/climb_cmd_h-dot LT 0
+    </test>
+  </switch>
+  
+  
+  <!--altitude or climb/descent-->
+   
+  
+  <summer name="fcs/ap_altitude-error">
+    <input> ap/altitude_setpoint </input>
+    <input> -fcs/position-h-sl-ft </input>
+    <clipto>
+      <min>-100</min>
+      <max>100</max>
+    </clipto>
+  </summer>
+  
+  <lag_filter name="fcs/ap_alt-error-lag">
+    <input> fcs/ap_altitude-error </input>
+    <c1> ap/altitude-err-c1 </c1>
+  </lag_filter>
+
+  <!--
+  altitude error is multipled  by the scheduled gain determined from the table, below. The output   is the absolute climb rate in feet/second
+  got from c172x
+  -->
+  <scheduled_gain name="fcs/ap_hdot-command_auto">
+    <input> fcs/ap_alt-error-lag </input>
+   <table>
+      <independentVar>position/h-sl-ft</independentVar>
+      <tableData>
+           0.0   0.12
+        1000.0   0.11
+        2000.0   0.10
+        3000.0   0.096
+        4000.0   0.093
+        5000.0   0.086
+        6000.0   0.078
+        7000.0   0.069
+        8000.0   0.061
+        9000.0   0.053
+       10000.0   0.045
+       11000.0   0.037
+       12000.0   0.028
+      </tableData>
+    </table>
+  </scheduled_gain>  
+  
+  <fcs_function name="fcs/ap_hdot-rate-cmd">
+                <function>
+		     <product>
+			 <abs><property>ap/climb_cmd_h-dot</property></abs>
+			 <property>fcs/ap_hdot-command_auto</property>
+		    </product>
+		</function>
+    </fcs_function> 
+    
+  
+  
+  <switch name="fcs/ap_hdot-command">
+    <default value="fcs/ap_hdot-command_auto"/>
+    <test logic="OR" value="fcs/ap_hdot-rate-cmd">
+      ap/climb_hold == 1
+    </test>
+  </switch>       
+  
+  
+  
+  
+  <summer name="fcs/ap_hdot-error">
+    <input>fcs/ap_hdot-command</input>
+    <input> -velocities/h-dot-fps </input>
+  </summer>
+  
+  
+  <switch name="fcs/ap_alt-error-switch">
+    <default value="0.0"/>
+    <test logic="AND" value="fcs/ap_hdot-error">
+       instruments/autopilot-engaged_delayed GT 0
+       ap/altitude_hold == 1
+    </test>
+  </switch>
+
+  <!--  
+  FIXME must be adapted to Al3
+  deadband component.
+  deg -11.459156 +12.605071   rad -0.20  +0.22
+  -->
+  <deadband name="fcs/windup-trigger">
+    <input> fcs/elevator-pos-deg </input>
+    <width>24.0</width>
+    <clipto>
+	<min>-11.45</min>
+	<max>12.55</max>
+    </clipto>
+  </deadband>   
+  
+  
+
+  <pid name="fcs/ap_altitude-pid">
+    <input> fcs/ap_alt-error-switch </input>    
+    <kp> ap/altitude-pid-kp </kp>    
+    <ki> ap/altitude-pid-ki </ki>    
+    <kd> ap/altitude-pid-kd </kd>
+    <trigger> fcs/windup-trigger </trigger>
+    <clipto>
+	<min>-1.0</min>
+	<max> 1.0</max> 
+    </clipto>
+  </pid>
+  
+  <pure_gain name="fcs/altitude_elevator">
+    <input> fcs/ap_altitude-pid </input>
+    <gain> -1.0 </gain>
+    <output> ap/elevator_cmd_r</output>
+  </pure_gain>
+  
+    
+    <switch name="ap/elevator_cmd">
+       <default value="0"/>
+	<test logic="AND" value="ap/elevator_cmd_r">	    
+         instruments/autopilot-engaged == 1
+	</test>
+    </switch>
+   
+  
+  
+</channel>
+
+
+  
+
+
+<!--================Heading==========================-->
+
+<channel name="Roll_Heading">
+    
+    
+  <pure_gain name="fcs/heading-true-deg">
+    <input>attitude/heading-true-rad</input>
+    <gain>57.3</gain> <!--from rad to deg-->
+  </pure_gain>
+
+  <summer name="fcs/ap_heading-error">    
+    <input> ap/heading_setpoint </input>
+    <input> -fcs/heading-true-deg </input>
+  </summer>
+
+  <switch name="fcs/ap_heading-error-bias-switch">
+    <default value="0.0"/>
+    <test value="360.0">
+      fcs/ap_heading-error lt -180
+    </test>
+    <test value="-360.0">
+      fcs/ap_heading-error gt 180
+    </test>
+  </switch>
+
+  <summer name="fcs/ap_heading-corrected">
+    <input> fcs/ap_heading-error-bias-switch </input>
+    <input> fcs/ap_heading-error </input>
+    <clipto>
+      <min>-30</min>
+      <max>30</max>
+    </clipto>
+  </summer>
+
+  <pure_gain name="fcs/ap_heading-command">
+    <input> fcs/ap_heading-corrected </input>
+    <gain> 0.01745 </gain>
+  </pure_gain>
+
+  <lag_filter name="fcs/heading-roll-error-lag">
+    <input> fcs/ap_heading-command </input>
+    <c1> ap/hdg-roll-err-c1 </c1>
+  </lag_filter>
+
+  <summer name="fcs/ap_heading-roll-error">
+    <input> fcs/heading-roll-error-lag </input>
+    <input> -attitude/phi-rad </input>
+  </summer>
+
+  <switch name="fcs/ap_heading-roll-error-switch">
+    <default value="0.0"/>
+    <test logic="AND" value="fcs/ap_heading-roll-error">
+      instruments/autopilot-engaged_delayed GT 0
+       ap/heading_hold == 1
+    </test>
+  </switch>
+
+  <pid name="fcs/ap_heading-pid">
+    <input> fcs/ap_heading-roll-error-switch </input>
+    <kp> ap/roll-pid-kp  </kp>
+    <ki> ap/roll-pid-ki </ki>
+    <kd> ap/roll-pid-kd </kd>
+  </pid>
+
+   <pure_gain name="fcs/roll_aileron">
+    <input> fcs/ap_heading-pid </input>
+    <gain> 1.0 </gain>
+    <output> ap/aileron_cmd_r</output>
+  </pure_gain>
+  
+  
+   <switch name="ap/aileron_cmd">
+       <default value="0"/>
+	<test logic="AND" value="ap/aileron_cmd_r">	    
+         instruments/autopilot-engaged == 1
+	</test>
+    </switch> 
+  
+  </channel> 
+  
+  
+  <!--================yaw==========================-->
+
+<channel name="Yaw drift correction">  
+
+  <summer name="fcs/ap_yaw-error_v">
+    <input>velocities/v-fps</input>
+  </summer>
+
+  
+  <summer name="fcs/ap_yaw-corrected">
+    <input>ap/yaw_setpoint</input>
+    <input> -fcs/ap_yaw-error_v </input>
+    <clipto>
+      <min>-10</min>
+      <max>10</max>
+    </clipto>
+  </summer>
+
+  <pure_gain name="fcs/ap_yaw-command">
+    <input> fcs/ap_yaw-corrected </input>
+    <gain>1 </gain>
+  </pure_gain>
+
+  <lag_filter name="fcs/yaw-error-lag">
+    <input> fcs/ap_yaw-command </input>
+    <c1> ap/yaw-err-c1 </c1>
+  </lag_filter>
+
+  <summer name="fcs/ap_yaw-error">
+    <input> fcs/yaw-error-lag </input>
+    <input> -attitude/theta-rad </input>
+  </summer>
+
+  <switch name="fcs/ap_yaw-error-switch">
+    <default value="0.0"/>
+    <test logic="AND" value="fcs/ap_yaw-error">
+      instruments/autopilot-engaged_delayed GT 0
+      ap/yaw_hold == 1
+    </test>
+  </switch>
+
+  <pid name="fcs/ap_yaw-pid">
+    <input> fcs/ap_yaw-error-switch </input>
+    <kp> ap/yaw-pid-kp  </kp>
+    <ki> ap/yaw-pid-ki </ki>
+    <kd> ap/yaw-pid-kd </kd>
+  </pid>
+  
+  <pure_gain name="fcs/yaw_rudder">
+    <input> fcs/ap_yaw-pid </input>
+    <gain> 1.0 </gain>
+    <output>ap/rudder_cmd_r</output>
+  </pure_gain>
+  
+
+  <switch name="fcs/yaw-command-selector">
+    <default value="0"/>
+    <test value="ap/rudder_cmd_r">
+    instruments/autopilot-engaged == 1
+    </test>   
+    <output>ap/rudder_cmd</output>    
+  </switch>
+  
+  </channel> 
+  
+  
+  
+  <channel name="Control flight interface">
+      
+      <switch name="ap/switch-pitch-trim_cmd-ms">
+	    <default value="fcs/pitch-trim-cmd-norm"/>
+	    <test logic="AND" value="ap/elevator_cmd_r">
+		   instruments/autopilot-engaged_delayed GT  0
+		    instruments/autopilot-engaged == 0
+	    </test>
+	    <test logic="AND" value="0">		  
+		    instruments/autopilot-engaged == 1
+	    </test>
+	    <output>fcs/pitch-trim-cmd-norm</output>
+	</switch>
+
+	<switch name="ap/switch-roll-trim_cmd-ms">
+	    <default value="fcs/roll-trim-cmd-norm"/>
+	    <test logic="AND" value="ap/aileron_cmd_r">
+		     instruments/autopilot-engaged_delayed GT  0
+		     instruments/autopilot-engaged == 0
+	    </test>
+	     <test logic="AND" value="0"> 
+		    instruments/autopilot-engaged == 1
+	    </test>
+	    <output>fcs/roll-trim-cmd-norm</output>
+	</switch>
+	
+	<switch name="ap/switch-yaw-trim_cmd-ms">
+	    <default value="fcs/yaw-trim-cmd-norm"/>
+	    <test logic="AND" value="ap/rudder_cmd_r">
+		     instruments/autopilot-engaged_delayed GT  0
+		     instruments/autopilot-engaged == 0     
+	    </test>
+	     <test logic="AND" value="0">		  
+		    instruments/autopilot-engaged == 1
+	    </test>
+	    <output>fcs/yaw-trim-cmd-norm</output>
+	</switch>
+	
+    </channel> 	
+
+
+</autopilot>
+
+
