@@ -2,35 +2,28 @@
 
 <!--
     Usable with FlightGear
-    property Gerard Robin
-    Copyright License:  CREATIVE COMMON BY-NC-ND
+    Property of Gerard Robin
+    Copyright License:  CREATIVE COMMON
 -->
 
 <!--Commande-Poignée     Couronne Bezel-->
 
 <PropertyList>
-     <condition>
-        <and>
-            <not>
-                 <property>sim/rendering/rembrandt/enabled</property>
-            </not>
-        </and>
-      </condition>
-		<type>material</type>
-		<emission>
-			<factor-prop>fdm/jsbsim/electrical/lighting/instruments-norm</factor-prop>
-			<red>0.4</red>
-			<green>0.2</green>
-			<blue>0.15</blue>
-		</emission>
-		<diffuse>
-			<red>0.5</red>
-			<green>0.5</green>
-			<blue>0.5</blue>
-		</diffuse>
-		<ambient>
-			<red>0.5</red>
-			<green>0.5</green>
-			<blue>0.5</blue>
-		</ambient>
+    <type>material</type>
+    <emission>
+            <factor-prop>controls/lighting/instruments-norm</factor-prop>
+            <red>0.4</red>
+            <green>0.2</green>
+            <blue>0.15</blue>
+    </emission>
+    <diffuse>
+            <red>0.5</red>
+            <green>0.5</green>
+            <blue>0.5</blue>
+    </diffuse>
+    <ambient>
+            <red>0.5</red>
+            <green>0.5</green>
+            <blue>0.5</blue>
+    </ambient>
 </PropertyList>

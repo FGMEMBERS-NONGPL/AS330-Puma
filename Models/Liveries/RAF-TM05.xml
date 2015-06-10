@@ -1,0 +1,12 @@
+ <?xml version="1.0"?>
+ 
+ <PropertyList>
+  <sim>
+   <model>
+    <livery>
+     <name type="string">RAF Tiger Meet 2005</name>
+     <Puma-texture>Liveries/RAF-TM05.png</Puma-texture>
+    </livery>
+   </model>
+  </sim>
+ </PropertyList>

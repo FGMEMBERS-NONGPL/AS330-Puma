@@ -7,33 +7,33 @@
     -->
     <!--        Auteur :      Gerard ROBIN            CREATIVE COMMON  COPYRIGHT -->
 
-
+  
 
 
 
 
 	<params>
 		<flapD0>
-			<factor>0.60</factor>
+			<factor>0.15</factor>
 		</flapD0>
 		<flapD1>
-			<factor>0.15</factor>
+			<factor>0.45</factor>
 		</flapD1>
 		<flapD2>
-			<factor>0.09</factor>
+			<factor>0.25</factor>
 		</flapD2>
 		<flapD3>
-			<factor>0.06</factor>
+			<factor>0.10</factor>
 		</flapD3>
 		<flapD4>
-			<factor>0.05</factor>
+			<factor>0.07</factor>
 		</flapD4>
-                <flap-deg>fdm/jsbsim/animation/rotor/main/blade3/flap-deg</flap-deg>
+		<flap-deg>rotors/main/blade[3]/flap-deg</flap-deg>
+		<blade-position>rotors/main/blade[3]/position-deg</blade-position>
 	</params>
-	
 
 	<model>
-            <name>Base3</name>
+            <!--<name>Rotor</name>-->
             <path>Aircraft/AS330-Puma/Models/Rotors/Puma-Rotor-Base.xml</path>
             <offsets>
                     <x-m>0</x-m>
@@ -44,58 +44,100 @@
         </model>
 
 
+	<animation>
+		<condition>
+			<less-than>
+			<property>rotors/main/rpm</property>
+			<value>210</value>
+			</less-than>
+		</condition>
+		<type>select</type>
+                <object-name>Rotor-PaleD1</object-name>
+		<object-name>Rotor-PaleD2</object-name>
+		<object-name>Rotor-PaleD3</object-name>
+		<object-name>Rotor-PaleD4</object-name>
+ 	</animation>
+
+        <animation>
+		<condition>
+			<greater-than>
+				<property>rotors/main/rpm</property>
+				<value>200</value>
+			</greater-than>
+		</condition>
+		<type>select</type>
+                <object-name>Rotor-FlouD0</object-name>
+		<object-name>Rotor-FlouD1</object-name>
+		<object-name>Rotor-FlouD2</object-name>
+		<object-name>Rotor-FlouD3</object-name>
+		<object-name>Rotor-FlouD4</object-name>
+ 	</animation>
 
 
+
+
+	<!--=========================Idea from======BO105==========================================-->
 	<!--==============ROTATE=======================-->
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Rotor-Tete-Cde</object-name>
+                <object-name>Rotor-Tete-Fix</object-name>
+		<property alias="../../params/blade-position"/>
+		<offset-deg>0</offset-deg>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+	</animation>
+        
         <animation>
             <type>rotate</type>
-            <object-name>Rotor-Tete-Cde</object-name>
-            <object-name>Rotor-Tete-Fix</object-name>
+           
             <object-name>Rotor-Pale-Fix</object-name>
-	    <object-name>Rotor-Pale-Lock</object-name>
-	    <object-name>Rotor-PaleD0</object-name>
-            <object-name>Rotor-PaleD1</object-name>
-            <object-name>Rotor-PaleD2</object-name>
-            <object-name>Rotor-PaleD3</object-name>
-            <object-name>Rotor-PaleD4</object-name>
-            <object-name>Rotor-FlouD0</object-name>
-            <object-name>Rotor-FlouD1</object-name>
-            <object-name>Rotor-FlouD2</object-name>
-            <object-name>Rotor-FlouD3</object-name>
-            <object-name>Rotor-FlouD4</object-name>
-            <property>sim/multiplay/generic/float[3]</property>
+           
+            <property alias="../../params/blade-position"/>
             <offset-deg>0</offset-deg>
             <axis>
                 <x>0</x>
                 <y>0</y>
                 <z>-1</z>
             </axis>
-        </animation>
-	
-	<!--FOLDED POSITION=============================-->	
-	
+	</animation>
+        
+
 	<animation>
 		<type>rotate</type>
-                <object-name>Rotor-PaleD0</object-name>
-                <object-name>Rotor-PaleD1</object-name>
-                <object-name>Rotor-PaleD2</object-name>
-                <object-name>Rotor-PaleD3</object-name>
-                <object-name>Rotor-PaleD4</object-name>
-		<property>fdm/jsbsim/fcs/wing-fold-pos-norm</property>
-		<factor>-48</factor>
-		<center>
-			<x-m>0.947434</x-m>
-			<y-m>0.0</y-m>
-			<z-m>0</z-m>
-		</center>
+		<object-name>Rotor-PaleD1</object-name>
+		<object-name>Rotor-PaleD2</object-name>
+		<object-name>Rotor-PaleD3</object-name>
+		<object-name>Rotor-PaleD4</object-name>
+		<property alias="../../params/blade-position"/>
+		<offset-deg>0</offset-deg>
 		<axis>
 			<x>0</x>
 			<y>0</y>
-			<z>1</z>
+			<z>-1</z>
 		</axis>
 	</animation>
 
-
+	<animation>
+		<type>rotate</type>
+		<object-name>Rotor-FlouD0</object-name>
+		<object-name>Rotor-FlouD1</object-name>
+		<object-name>Rotor-FlouD2</object-name>
+		<object-name>Rotor-FlouD3</object-name>
+		<object-name>Rotor-FlouD4</object-name>
+		<property alias="../../params/blade-position"/>
+		<offset-deg>0</offset-deg>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+	</animation>
 
 	<!--==============FLAP=============================-->
 	<animation>
@@ -118,18 +160,16 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+        
         <animation>
             <type>rotate</type>
             <object-name>Rotor-Pale-Fix</object-name>
-	    <object-name>Rotor-Pale-Lock</object-name>
-	    <object-name>Rotor-PaleD0</object-name>
             <object-name>Rotor-PaleD1</object-name>
             <object-name>Rotor-PaleD2</object-name>
             <object-name>Rotor-PaleD3</object-name>
             <object-name>Rotor-PaleD4</object-name>
             <property alias="../../params/flap-deg"/>
-            <factor alias="../../params/flapD0/factor"/>
+            <factor alias="../../params/flapD1/factor"/>
             <center>
                 <x-m>0.257239</x-m>
                 <y-m>0</y-m>
@@ -151,7 +191,7 @@
 		<property alias="../../params/flap-deg"/>
 		<factor alias="../../params/flapD1/factor"/>
 		<center>
-			<x-m>1.72222</x-m>
+			<x-m>1.60416</x-m>
 			<y-m>0</y-m>
 			<z-m>0</z-m>
 		</center>
@@ -171,7 +211,7 @@
 		<property alias="../../params/flap-deg"/>
 		<factor alias="../../params/flapD1/factor"/>
 		<center>
-			<x-m>1.66415</x-m>
+			<x-m>1.60416</x-m>
 			<y-m>0</y-m>
 			<z-m>0</z-m>
 		</center>
@@ -219,33 +259,6 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
-        <animation>
-            <condition>
-                <equals>
-                    <property>sim/multiplay/generic/float[9]</property>                   
-                    <value>0</value>
-                </equals>
-            </condition>
-            <type>select</type>
-            <object-name>Rotor-PaleD2</object-name>
-            <object-name>Rotor-PaleD3</object-name>
-            <object-name>Rotor-PaleD4</object-name>
-        </animation>
-
-        <animation>
-            <condition>
-                <equals>
-                    <property>sim/multiplay/generic/float[9]</property>
-                    <value>0</value>
-                </equals>
-            </condition>
-            <type>select</type>
-            <object-name>Rotor-FlouD2</object-name>
-            <object-name>Rotor-FlouD3</object-name>
-            <object-name>Rotor-FlouD4</object-name>
-        </animation>
-
 
 	<animation>
 		<type>rotate</type>

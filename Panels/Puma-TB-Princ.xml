@@ -3,14 +3,14 @@
 <!--
     Dedicated only to FlightGear
     Property of Gerard Robin
-    License:  CREATIVE COMMON BY-NC-ND
+    License:  CREATIVE COMMON BY-NC-SA
 -->
 
 
 
 <PropertyList>
 
-    <path>Models/panelV-basev1.ac</path>
+    <path>Models/panelV-base.ac</path>
     <texture-path>Models/Textures</texture-path>
 
     <animation>
@@ -23,25 +23,13 @@
         <type>select</type>
         <object-name>Gabarit-Pose</object-name>
     </animation>
-    
-     <effect>
-	<inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
-	<object-name>FaceH</object-name>
-	<object-name>FaceB</object-name>
-	<object-name>YFrame</object-name>
-    </effect>
- 
-    <model>
-        <name>Light-cons01</name>
-	<path>Aircraft/AS330-Puma/Models/Remb/Light_cons.xml</path>
-        <offsets>
-            <x-m>0.13</x-m>
-            <y-m>0.0</y-m>
-            <z-m>-0.0</z-m>	
-	    <pitch-deg>90</pitch-deg>
-        </offsets>
-    </model>
-    
+
+
+
+    <!--<effect>
+        <inherits-from>Aircraft/AS330-Puma/Effets/reflectCockpit</inherits-from>
+        <object-name>CorpsH</object-name>
+    </effect>-->
 
     <!--================1================-->
 
@@ -50,8 +38,8 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.631824</y-m>
-            <z-m>0.054995</z-m>
+            <y-m>-0.647295</y-m>
+            <z-m>0.0549686</z-m>
         </offsets>
     </model>
 
@@ -60,8 +48,8 @@
         <path>Aircraft/AS330-Puma/Instruments/ASI-Puma.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.631824</y-m>
-            <z-m>0.054995</z-m>
+            <y-m>-0.647295</y-m>
+            <z-m>0.0549686</z-m>
         </offsets>
     </model>
 
@@ -70,8 +58,8 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.631824</y-m>
-            <z-m>-0.04107</z-m>
+            <y-m>-0.647295</y-m>
+            <z-m>-0.0410721</z-m>
         </offsets>
     </model>
 
@@ -81,24 +69,21 @@
         <path>Aircraft/AS330-Puma/Instruments/Altitude-radio-Puma.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.631824</y-m>
-            <z-m>-0.04107</z-m>
+            <y-m>-0.647295</y-m>
+            <z-m>-0.0410721</z-m>
         </offsets>
     </model>
-
-
-
 
 
     <!--================2================-->
 
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel-AI.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.509492</y-m>0.509492
-            <z-m>0.0614324</z-m>
+            <y-m>-0.526048</y-m>
+            <z-m>0.05966</z-m>
         </offsets>
     </model>
 
@@ -107,27 +92,17 @@
         <path>Aircraft/AS330-Puma/Instruments/AI-Puma.xml</path>
         <offsets>
             <x-m>0.100344</x-m>
-            <y-m>-0.509492</y-m>
-            <z-m>0.061435</z-m>
-        </offsets>
-    </model>
-    
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel-f4u7.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.510538</y-m>
-            <z-m>-0.0684125</z-m>
+            <y-m>-0.526048</y-m>
+            <z-m>0.05966</z-m>
         </offsets>
     </model>
 
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/HI-Puma.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.510538</y-m>
+            <y-m>-0.526048</y-m>
             <z-m>-0.0684125</z-m>
         </offsets>
     </model>
@@ -139,7 +114,7 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.39335</y-m>
+            <y-m>-0.40742</y-m>
             <z-m>0.0678578</z-m>
         </offsets>
     </model>
@@ -149,7 +124,7 @@
         <path>Aircraft/AS330-Puma/Instruments/IVSI-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.39335</y-m>
+            <y-m>-0.40742</y-m>
             <z-m>0.0678578</z-m>
         </offsets>
     </model>
@@ -159,7 +134,7 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.39335</y-m>
+            <y-m>-0.40742</y-m>
             <z-m>-0.041167</z-m>
         </offsets>
     </model>
@@ -169,14 +144,14 @@
         <path>Aircraft/AS330-Puma/Instruments/ALT-Nord.xml</path>
         <offsets>
             <x-m>0.1412996</x-m>
-            <y-m>-0.39335</y-m>
+            <y-m>-0.40742</y-m>
             <z-m>-0.041167</z-m>
         </offsets>
     </model>
 
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord-nl.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
             <y-m>-0.433968</y-m>
@@ -188,53 +163,30 @@
 
 
     <!--================4================-->
-    
-     <model>
+
+    <model>
+        <name></name>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
+        <offsets>
+            <x-m>0.151301</x-m>
+            <y-m>-0.292475</y-m>
+            <z-m>0.0723896</z-m>
+        </offsets>
+    </model>
+
+    <model>
         <name></name>
         <path>Aircraft/AS330-Puma/Instruments/Bezel-f4u7.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.275886</y-m>
-            <z-m>0.061357</z-m>
+            <y-m>-0.280011</y-m>
+            <z-m>-0.0838342</z-m>
         </offsets>
     </model>
 
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Rotor-rpm-Puma.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.275886</y-m>
-            <z-m>0.061357</z-m>
-        </offsets>
-    </model>
-    
-     <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel-f4u7.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.275886</y-m>
-            <z-m>-0.0842791</z-m>
-        </offsets>
-    </model>
-
-
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Rotor-Torque-Puma.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.275886</y-m>
-            <z-m>-0.0842791</z-m>
-        </offsets>
-    </model>
-
-   
-
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51-nl.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
             <y-m>-0.275867</y-m>
@@ -243,50 +195,36 @@
     </model>
 
     <!--================5================-->
-    
-    
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Panel-Annunciator.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.15</y-m>
-            <z-m>0.0624235</z-m>
-        </offsets>
-    </model>
 
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord-nl.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.166458</y-m>
+            <y-m>-0.17786</y-m>
             <z-m>-0.090704</z-m>
         </offsets>
     </model>
 
-    
+    <model>
+        <name></name>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
+        <offsets>
+            <x-m>0.151301</x-m>
+            <y-m>-0.191469</y-m>
+            <z-m>-0.206611</z-m>
+        </offsets>
+    </model>
 
     <!--================6================-->
-    
-    
 
     <model>
         <name></name>
         <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.037120</y-m>
-            <z-m>-0.00641501</z-m>
-        </offsets>
-    </model>
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/N1-Puma_left-eng0.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.037120</y-m>
-            <z-m>-0.00641501</z-m>
+            <y-m>-0.0569764</y-m>
+            <z-m>0.0717531</z-m>
         </offsets>
     </model>
 
@@ -295,61 +233,30 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.037120</y-m>
-            <z-m>0.0717531</z-m>
-        </offsets>
-    </model>
-    
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Oil-Fuel-ctl-Left_eng.xml</path>
-        <offsets>
-            <x-m>0.148</x-m>
-            <y-m>-0.037120</y-m>
-            <z-m>0.0717531</z-m>
+            <y-m>-0.0569764</y-m>
+            <z-m>-0.006419</z-m>
         </offsets>
     </model>
 
-    
-
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel_vtpt-S51.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>-0.037120</y-m>
-            <z-m>-0.0860299</z-m>
-        </offsets>
-    </model>
-    
-     <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Tuyere-temp_left-eng.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.037120</y-m>
+            <y-m>-0.0569764</y-m>
             <z-m>-0.0860299</z-m>
         </offsets>
     </model>
 
     <!--================7================-->
-    
+
     <model>
         <name></name>
         <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.037120</y-m>
-            <z-m>-0.00641501</z-m>
-        </offsets>
-    </model>
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/N1-Puma_right-eng0.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>0.037120</y-m>
-            <z-m>-0.00641501</z-m>
+            <y-m>0.01754</y-m>
+            <z-m>0.0717531</z-m>
         </offsets>
     </model>
 
@@ -358,39 +265,17 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.037120</y-m>
-            <z-m>0.0717531</z-m>
-        </offsets>
-    </model>
-    
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Oil-Fuel-ctl-right_eng.xml</path>
-        <offsets>
-            <x-m>0.148</x-m>
-            <y-m>0.037120</y-m>
-            <z-m>0.0717531</z-m>
+            <y-m>0.01754</y-m>
+            <z-m>-0.006419</z-m>
         </offsets>
     </model>
 
-   
-
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel_vtpt-S51.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.037120</y-m>
-            <z-m>-0.0860299</z-m>
-        </offsets>
-    </model>
-    
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Tuyere-temp_right-eng.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>0.037120</y-m>
+            <y-m>0.01754</y-m>
             <z-m>-0.0860299</z-m>
         </offsets>
     </model>
@@ -402,7 +287,7 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel-f4u7.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.154947</y-m>
+            <y-m>0.130417</y-m>
             <z-m>0.030465</z-m>
         </offsets>
     </model>
@@ -412,22 +297,30 @@
         <path>Aircraft/AS330-Puma/Instruments/AI2-Puma.xml</path>
         <offsets>
             <x-m>0.127937</x-m>
-            <y-m>0.154947</y-m>
+            <y-m>0.130417</y-m>
             <z-m>0.030465</z-m>
         </offsets>
     </model>
 
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel-f4u7-nl.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel-f4u7.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.154947</y-m>
+            <y-m>0.130417</y-m>
             <z-m>-0.0842791</z-m>
         </offsets>
     </model>
 
-    
+    <model>
+        <name></name>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel_tpt-S51.xml</path>
+        <offsets>
+            <x-m>0.151301</x-m>
+            <y-m>0.165545</y-m>
+            <z-m>-0.212018</z-m>
+        </offsets>
+    </model>
 
     <!--================9================-->
 
@@ -436,7 +329,7 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel-f4u7.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.275886</y-m>
+            <y-m>0.258402</y-m>
             <z-m>0.061357</z-m>
         </offsets>
     </model>
@@ -446,7 +339,7 @@
         <path>Aircraft/AS330-Puma/Instruments/Rotor-rpm-Puma.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.275886</y-m>
+            <y-m>0.258402</y-m>
             <z-m>0.061357</z-m>
         </offsets>
     </model>
@@ -458,7 +351,7 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel-f4u7.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.275886</y-m>
+            <y-m>0.258402</y-m>
             <z-m>-0.0842791</z-m>
         </offsets>
     </model>
@@ -469,7 +362,7 @@
         <path>Aircraft/AS330-Puma/Instruments/Rotor-Torque-Puma.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.275886</y-m>
+            <y-m>0.258402</y-m>
             <z-m>-0.0842791</z-m>
         </offsets>
     </model>
@@ -483,36 +376,6 @@
             <x-m>0.151301</x-m>
             <y-m>0.256489</y-m>
             <z-m>-0.212018</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Fuel.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>0.256489</y-m>
-            <z-m>-0.212015</z-m>
-        </offsets>
-    </model>
-    
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel_vtpt-S51.xml</path>
-        <offsets>            
-	    <x-m>0.151301</x-m>
-            <y-m>0.165546</y-m>
-            <z-m>-0.212015</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/CLOCK-f4u7.xml</path>
-        <offsets>
-            <x-m>0.15</x-m>
-            <y-m>0.165546</y-m>
-            <z-m>-0.212015</z-m>
         </offsets>
     </model>
 
@@ -544,7 +407,7 @@
         <offsets>
             <x-m>0.151301</x-m>
             <y-m>0.387672</y-m>
-            <z-m>-0.0350211</z-m>
+            <z-m>-0.0692074</z-m>
         </offsets>
     </model>
 
@@ -555,7 +418,7 @@
         <offsets>
             <x-m>0.151301</x-m>
             <y-m>0.387672</y-m>
-            <z-m>-0.0350211</z-m>
+            <z-m>-0.0692074</z-m>
         </offsets>
     </model>
 
@@ -586,7 +449,7 @@
 
     <model>
         <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Bezel-AI.xml</path>
+        <path>Aircraft/AS330-Puma/Instruments/Bezel-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
             <y-m>0.510538</y-m>
@@ -630,8 +493,8 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.631825</y-m>
-            <z-m>0.05499</z-m>
+            <y-m>0.636032</y-m>
+            <z-m>0.0591989</z-m>
         </offsets>
     </model>
 
@@ -640,8 +503,8 @@
         <path>Aircraft/AS330-Puma/Instruments/IVSI-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.631825</y-m>
-            <z-m>0.05499</z-m>
+            <y-m>0.636032</y-m>
+            <z-m>0.0591989</z-m>
         </offsets>
     </model>
 
@@ -650,7 +513,7 @@
         <path>Aircraft/AS330-Puma/Instruments/Bezel_pt-Nord.xml</path>
         <offsets>
             <x-m>0.151301</x-m>
-            <y-m>0.631825</y-m>
+            <y-m>0.636032</y-m>
             <z-m>-0.046846</z-m>
         </offsets>
     </model>
@@ -659,79 +522,11 @@
         <path>Aircraft/AS330-Puma/Instruments/ALT-Nord.xml</path>
         <offsets>
             <x-m>0.1412996</x-m>
-            <y-m>0.631825</y-m>
+            <y-m>0.636032</y-m>
             <z-m>-0.046846</z-m>
         </offsets>
     </model>
 
 
-
-    
-
-    <!--<model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Alarm-CutOff-Puma_eng1.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>0.037120</y-m>
-            <z-m>-0.233972</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Alarm-CutOff-Puma_eng0.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.037120</y-m>
-            <z-m>-0.233972</z-m>
-        </offsets>
-    </model>-->
-
-    <!--<model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Rotor-Brake-AL_III.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.174619</y-m>
-            <z-m>0.080379</z-m>
-        </offsets>
-    </model>
-
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Rotor-Clutch-AL_III.xml</path>
-        <offsets>
-            <x-m>0.151301</x-m>
-            <y-m>-0.147865</y-m>
-            <z-m>0.080379</z-m>
-        </offsets>
-    </model>-->
-
-
-   
-
-
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Module_puma-Eng_start.xml</path>
-        <offsets>
-            <x-m>0.152287</x-m>
-            <y-m>-0.0</y-m>
-            <z-m>-0.201647</z-m>
-        </offsets>
-    </model>
-    
-    
-    <model>
-        <name></name>
-        <path>Aircraft/AS330-Puma/Instruments/Module-Turn.xml</path>
-        <offsets>
-            <x-m>0.1513</x-m>
-            <y-m>0.387432</y-m>
-            <z-m>-0.109847</z-m>
-        </offsets>
-    </model>
-    
 
 </PropertyList>

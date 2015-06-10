@@ -13,45 +13,14 @@
 		<type>noshadow</type>
 		<object-name>Bezel</object-name>
 	</animation>
-	
-	<!--<effect>
-	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
-	    <object-name>Bezel</object-name>
-	    
-	</effect>-->
 
 	<animation include="Instrument-Light5.xml">
 		<object-name>Couronne</object-name>
 	</animation>
-	
-	<effect>
-	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
-	    <!--<object-name>Couronne</object-name>-->	
-	    <object-name>Casquette</object-name>	
-	</effect>
 
 	<animation include="Instrument-Light2.xml">
 		<object-name>Corps</object-name>
 		<object-name>CorpsH</object-name>
 	</animation>
-
-        <model>
-            <name>Light-Bezel-f4u7</name>
-            <path>Aircraft/AS330-Puma/Instruments/Light-Bezel-f4u7.xml</path>
-            <offsets>
-                <x-m>0.008</x-m>
-                <y-m>0</y-m>
-                <z-m>0.005</z-m>
-                <pitch-deg>0</pitch-deg>
-            </offsets>
-        </model>
-
-        <animation>
-            <type>select</type>
-            <object-name>Light-Bezel-f4u7</object-name>
-            <condition>
-                <property>sim/rendering/rembrandt/enabled</property>
-            </condition>
-        </animation>
 
 </PropertyList>

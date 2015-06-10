@@ -3,7 +3,7 @@
 <!--
     Usable with FlightGear
     Property of Gerard Robin  (C)  2007
-    Copyright License:  CREATIVE COMMON  BY-NC-ND
+    Copyright License:  CREATIVE COMMON  BY-NC-SA
 -->
 
 <PropertyList>
@@ -24,11 +24,6 @@
 	<animation include="Instrument-Light3.xml">
 		<object-name>Cadran</object-name>
 	</animation>
-	
-	<!--<effect>
-	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
-	    <object-name>Cadran</object-name>	    
-	</effect>-->
 
 
 	<animation>

@@ -1,0 +1,20 @@
+<PropertyList>
+
+
+    <!--
+    Usable with FlightGear
+    Property of Gerard Robin
+    Copyright License:  CREATIVE COMMON
+    -->
+    <!--                   Auteur :      Gerard ROBIN                      CREATIVE COMMON COPYRIGHT-->
+	<path>puma-Marq.ac</path>
+
+	<texture-path>Texturefr</texture-path>
+
+        <!--<effect>
+            <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectMark</inherits-from>
+            <object-name>Marquage</object-name>
+         </effect>-->
+
+
+</PropertyList>

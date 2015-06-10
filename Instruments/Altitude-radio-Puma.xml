@@ -3,7 +3,7 @@
 <!--
     Usable with FlightGear
     Property of Gerard Robin
-    Copyright License:  CREATIVE COMMON BY-NC-ND
+    Copyright License:  CREATIVE COMMON BY-NC-SA
 -->
 
 <PropertyList>
@@ -24,17 +24,12 @@
 	<animation include="Instrument-Light3.xml">
 		<object-name>Cadran</object-name>
 	</animation>
-	
-	<!--<effect>
-	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
-	    <object-name>Cadran</object-name>	    
-	</effect>-->
 
 
 	<animation>
 		<type>rotate</type>
 		<object-name>Aiguille</object-name>
-                <property>fdm/jsbsim/instruments/agl-under_wheel</property>
+		<property>position/altitude-agl-ft</property>
 		<interpolation>
 			<entry>
 				<ind>0</ind>
@@ -78,11 +73,11 @@
 			</entry>
                         <entry>
                             <ind>500</ind>
-                            <dep>274</dep>
+                            <dep>274</dep>                            
 			</entry>
                         <entry>
                             <ind>850</ind>
-                            <dep>316</dep>
+                            <dep>316</dep>                            
 			</entry>
 		</interpolation>
 		<center>

@@ -23,71 +23,42 @@
 		<type>select</type>
                 <object-name>Gabarit-Pose</object-name>
  	</animation>
-	
-	<!--ALPHA HIERARCHY=================-->
+
+        <!--ALPHA HIERARCHY=================-->
         <animation>
                 <name>Alpha</name>
                 <object-name>Rotor-Tete-Fix</object-name>
                 <object-name>Rotor-Tete-Cde</object-name>
-		 <object-name>Rotor-PaleD0</object-name>
                 <object-name>Rotor-PaleD1</object-name>
 		<object-name>Rotor-PaleD2</object-name>
 		<object-name>Rotor-PaleD3</object-name>
 		<object-name>Rotor-PaleD4</object-name>
-                <object-name>Rotor-FlouD0</object-name>
+               
+                <object-name>Rotor-Pale-Fix</object-name>
+		<object-name>Rotor-FlouD0</object-name>
                 <object-name>Rotor-FlouD1</object-name>
-                <object-name>Rotor-FlouD2</object-name>
-                <object-name>Rotor-FlouD3</object-name>
+		<object-name>Rotor-FlouD2</object-name>
+		<object-name>Rotor-FlouD3</object-name>
 		<object-name>Rotor-FlouD4</object-name>
+                <!--<object-name>Rotor-Disc_M-Pale</object-name>-->
         </animation>
-	
+
 	<animation>
-            <condition>
-                <equals>
-                    <property>fdm/jsbsim/fcs/wing-fold-pos-norm</property>                   
-		    <value>0</value>
-                </equals>
-            </condition>
-            <type>select</type>
-            <object-name>Rotor-Pale-Lock</object-name>            
-        </animation>
-
-	
-	
-	<effect>
-	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflect_rb-p-shine</inherits-from>
-	    <object-name>Rotor-Pale-Fix</object-name>
-	    <!--<object-name></object-name>-->
-	</effect>
-	
-	
-	<!--not animation type blend compliant-->
-	<!--<effect>
-	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
-	    <object-name>Rotor-PaleD0</object-name>
-	    <object-name>Rotor-PaleD1</object-name>
-	    <object-name>Rotor-PaleD2</object-name>
-	    <object-name>Rotor-PaleD3</object-name>
-	    <object-name>Rotor-PaleD4</object-name>
-	</effect>-->
-
-
-
-        <effect>
-            <inherits-from>Effects/model-transparent</inherits-from>
-            <object-name>Rotor-FlouD0</object-name>
-            <object-name>Rotor-FlouD1</object-name>
-            <object-name>Rotor-FlouD2</object-name>
-            <object-name>Rotor-FlouD3</object-name>
-            <object-name>Rotor-FlouD4</object-name>
-        </effect>
-	
-
-        
-
+		<condition>
+			<greater-than>
+				<property>rotors/main/rpm</property>
+				<value>160</value>
+			</greater-than>
+		</condition>
+		<type>noshadow</type>
+                <object-name>Rotor-PaleD1</object-name>
+		<object-name>Rotor-PaleD2</object-name>
+		<object-name>Rotor-PaleD3</object-name>
+		<object-name>Rotor-PaleD4</object-name>
+ 	</animation>
 
         <animation>
-		<!--<type>noshadow</type>-->
+		<type>noshadow</type>
 		<object-name>Rotor-FlouD0</object-name>
                 <object-name>Rotor-FlouD1</object-name>
 		<object-name>Rotor-FlouD2</object-name>
@@ -102,32 +73,31 @@
 
          <animation>
 		<type>blend</type>
-		 <object-name>Rotor-PaleD0</object-name>
                 <object-name>Rotor-PaleD1</object-name>
 		<object-name>Rotor-PaleD2</object-name>
 		<object-name>Rotor-PaleD3</object-name>
 		<object-name>Rotor-PaleD4</object-name>
-                <property>sim/multiplay/generic/float[5]</property>
-		<factor>0.0040</factor>
+		<property>rotors/main/rpm</property>
+		<factor>0.0042</factor>
 	</animation>
 
+       <!-- <animation>
+		<type>blend</type>
+                <object-name>Rotor-Pale-Base</object-name>
+                <object-name>Rotor-Pale-Fix</object-name>
+		<property>rotors/main/rpm</property>
+		<factor>0.0085</factor>
+	</animation>-->
+
+        <!--NOSHADOW=====================-->
 
 
-        <animation>
-            <condition>
-                <greater-than>
-                    <property>sim/multiplay/generic/float[5]</property>
-                    <!--<property>fdm/jsbsim/animation/rotor0-rotation</property>-->
-                    <value>200</value>
-                </greater-than>
-            </condition>
-            <type>select</type>
-            <object-name>Rotor-FlouD0</object-name>
-            <object-name>Rotor-FlouD1</object-name>
-            <object-name>Rotor-FlouD2</object-name>
-            <object-name>Rotor-FlouD3</object-name>
-            <object-name>Rotor-FlouD4</object-name>
-        </animation>
+
+
+
+
+
+
 
 
 

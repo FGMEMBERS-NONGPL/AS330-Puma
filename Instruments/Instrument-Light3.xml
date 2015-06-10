@@ -2,23 +2,16 @@
 
 <!--
     Usable with FlightGear
-    property Gerard Robin
-    Copyright License:  CREATIVE COMMON BY-NC-ND
+    Property of Gerard Robin
+    Copyright License:  CREATIVE COMMON
 -->
 
 <!--fond de cadran Interrupteur-->
 
 <PropertyList>
-     <condition>
-        <and>
-            <not>
-                 <property>sim/rendering/rembrandt/enabled</property>
-            </not>
-        </and>
-      </condition>
 		<type>material</type>
 		<emission>
-			<factor-prop>fdm/jsbsim/electrical/lighting/instruments-norm</factor-prop>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
 			<red>0.60</red>
 			<green>0.30</green>
 			<blue>0.20</blue>

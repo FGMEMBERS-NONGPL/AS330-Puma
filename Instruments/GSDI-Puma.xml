@@ -5,7 +5,7 @@
 <!--
     Usable with FlightGear
     Property of Gerard Robin  (C) 2010
-    Copyright License:  CREATIVE-COMMON BY-NC-ND
+    Copyright License:  CREATIVE-COMMON BY-NC-SA
 -->
 <PropertyList>
 
@@ -26,17 +26,12 @@
 	<animation include="Instrument-Light2.xml">
 		<object-name>Cadran</object-name>
 	</animation>
-	
-	<!--<effect>
-	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
-	    <object-name>Cadran</object-name>	    
-	</effect>-->
         
         
         <animation>
             <type>rotate</type>
             <object-name>IndicU</object-name>
-            <property>fdm/jsbsim/instruments/gsdi/drift-u-kt</property>
+            <property>instrumentation/gsdi/drift-u-kt</property>
             <interpolation>
                 <entry>
                     <ind>-50</ind> 
@@ -74,7 +69,7 @@
         <animation>
             <type>rotate</type>
             <object-name>IndicV</object-name>
-            <property>fdm/jsbsim/instruments/gsdi/drift-v-kt</property>
+            <property>instrumentation/gsdi/drift-v-kt</property>
             <interpolation>
                 <entry>
                     <ind>-50</ind>
@@ -112,7 +107,7 @@
 	<!--<animation>
 		<type>translate</type>
 		<object-name>IndicU</object-name>
-                <property>fdm/jsbsim/instruments/gsdi/drift-u-kt</property>
+                <property>instrumentation/gsdi/drift-u-kt</property>
 		<interpolation>
 			<entry>
 				<ind>-10</ind>
@@ -137,7 +132,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>IndicV</object-name>
-                <property>fdm/jsbsim/instruments/gsdi/drift-v-kt</property>
+                <property>instrumentation/gsdi/drift-v-kt</property>
 		<interpolation>
 			<entry>
 				<ind>-10</ind>

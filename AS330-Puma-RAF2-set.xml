@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<!--
+    **************************
+                                  Usable with FlightGear
+                                  Gerard Robin (C)  2010
+                                  Copyright License:  CREATIVE COMMON BY-NC-SA
+************************************************************************
+-->
+
+<PropertyList>
+
+    <note>
+        This model was created using publicly available data, publicly available
+        technical reports, textbooks, and guesses. It contains no proprietary or
+        restricted data. It has been validated only to the extent that it seems
+        to "fly right", and possibly to comply to published, publicly known,
+        performance data (maximum speed, endurance, etc.). Thus, this model
+        is meant for educational and entertainment purposes only.
+
+        This simulation model is not endorsed by the manufacturer.
+    </note>
+
+ <sim>
+	<description>AS330-Puma, RAF Tiger Meet '05</description>
+
+        <author>Gerard Robin, Josh (maintain)</author>
+        <status>alpha, "CREATIVE COMMON BY-NC-SA Copyright"</status>
+        <version> 0.7</version>
+	<flight-model>yasim</flight-model>
+	<aero>AS330</aero>
+	<fuel-fraction>0.8</fuel-fraction>
+        <startup>
+            <splash-texture>Aircraft/AS330-Puma/puma-splash-FGUK2.png</splash-texture>
+        </startup>
+	<sound>
+		<path>Aircraft/AS330-Puma/Sounds/sound.xml</path>
+	</sound>
+
+        <systems>
+                <electrical>
+                        <path>Aircraft/Generic/generic-electrical.xml</path>
+                </electrical>
+        </systems>
+
+        <instrumentation>
+            <path>Aircraft/AS330-Puma/Instruments/instrumentation.xml</path>
+        </instrumentation>
+
+        <hud>
+            <path n="1">Huds/default.xml</path>
+            <enable3d n="1">false</enable3d>
+            <visibility n="1">false</visibility>
+        </hud>
+
+        <model>
+            <path archive="y">Aircraft/AS330-Puma/Models/Puma-AS330-RAF2.xml</path>
+            <fg-ver type="string">2.4.0</fg-ver>
+            <puma>
+                    <strobe-blend type="float">0.2</strobe-blend>
+                    <beacon-blend type="float">0.2</beacon-blend>
+                    <strobe-top type="bool">true</strobe-top>
+                    <strobe-bottom type="bool">true</strobe-bottom>
+                    <beacon-top type="bool">true</beacon-top>
+                    <beacon-bottom type="bool">true</beacon-bottom>
+                    <nav-lights type="bool">true</nav-lights>
+                    <state type="int">0</state>
+                    <rotor-step-deg type="float">0.0</rotor-step-deg>
+					
+						<particles>
+					<enabled type="bool">true</enabled>
+				</particles>
+            </puma>
+        </model>
+		
+				<mp-systems>
+					<radar-enabled type="bool">true</radar-enabled>
+					<ecm-rwr-enabled type="bool">true</ecm-rwr-enabled>
+					<combat-enabled type="bool">true</combat-enabled>
+				</mp-systems>
+				
+		<multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+         <!--><int n="0" alias="/sim/crashed" /><-->
+		 
+		  
+        <!-- Nav lights on -->
+      <int n="0" alias="/controls/lighting/nav-lights-switch" />
+      <!-- Beacon on -->
+      <int n="1" alias="/controls/lighting/beacon-switch" />
+      <!-- Landing lights on -->
+      <int n="2" alias="/controls/lighting/landing-lights-switch" />
+	    <!-- Taxi light on -->
+      <int n="3" alias="/controls/lighting/taxi-light-switch" />
+	  
+	 
+			
+      </generic>
+    </multiplay>			
+		
+
+        <view>
+                <internal>true</internal>
+                <config>
+                    <x-offset-m type="double">0.674</x-offset-m><!--right-->
+                    <y-offset-m type="double">0.300</y-offset-m><!--up--><!--0.142259-->
+                    <z-offset-m type="double">-3.45</z-offset-m><!--back-->-<!--3.6434-->
+                        <pitch-offset-deg>-11</pitch-offset-deg>
+                        <default-field-of-view-deg type="double">63.0</default-field-of-view-deg>
+                </config>
+        </view>
+
+        <help include="Help/AS330-Puma-help.xml"/>
+
+        <!--<submodels>
+            <serviceable>true</serviceable>
+            <path>Aircraft/AS330-Puma/Effets/submodels.xml</path>
+        </submodels>-->
+
+
+ </sim>
+
+ <!--<ai><submodels><rotor-dust type="bool">1</rotor-dust></submodels></ai>-->
+
+
+
+
+        <controls>
+            <flight>
+                <aileron-trim>-0.00000</aileron-trim>
+                <rudder-trim>-0.0000</rudder-trim>
+                <wing-fold>0</wing-fold>
+            </flight>
+            <engines>
+                <engine n="0">
+                    <magnetos>0</magnetos>
+                    <rotorgear>0</rotorgear>
+                    <master-bat>false</master-bat>
+                    <throttle>1</throttle>
+                </engine>
+            </engines>
+            <gear>
+                <brake-parking type="double">1.0</brake-parking>
+            </gear>
+            <rotor>
+                <brake>1</brake>
+                <fold-pos>0</fold-pos>
+                <folded>0</folded>
+            </rotor>
+            <electric>
+                <master-switch>false</master-switch>
+                <battery-switch>false</battery-switch>
+            </electric>
+            <switches>
+                <landing-light>true</landing-light>
+                <master-avionics>false</master-avionics>
+            </switches>
+            <lighting>
+                <instruments-norm type="double">0.4</instruments-norm>
+            </lighting>
+	</controls>
+
+        <instrumentation>
+            <gsdi>
+                <serviceable type="bool">true</serviceable>
+                <enabled type="bool">true</enabled>
+            </gsdi>
+	</instrumentation>
+
+        <autopilot>
+           <config>
+                     <min-climb-speed-kt type="float">30.0</min-climb-speed-kt>
+                     <best-climb-speed-kt type="float">90.0</best-climb-speed-kt>
+                     <target-climb-rate-fpm type="float">400.0</target-climb-rate-fpm>
+                     <target-descent-rate-fpm type="float">1000.0</target-descent-rate-fpm>
+                     <elevator-adj-factor type="float">6000.0</elevator-adj-factor>
+                     <integral-contribution type="float">0.008</integral-contribution>
+                     <zero-pitch-throttle type="float">0.35</zero-pitch-throttle>
+                     <zero-pitch-trim-full-throttle type="float">0.001</zero-pitch-trim-full-throttle>
+           </config>
+        </autopilot>
+
+        <rotors>
+		<main>
+			<rpm type="double">0</rpm>
+		</main>
+        </rotors>
+
+	<input include="Inputs/AS330-Puma-input.xml"/>
+
+
+	<nasal>
+		<puma>
+			<file>Aircraft/AS330-Puma/Systems/puma.nas</file>
+			
+		</puma>
+		
+		<lights>
+      <file>Aircraft/AS330-Puma/Nasal/Lights.nas</file>
+    </lights>
+                
+	</nasal>
+
+        <!-- locks the generic crash animation, its wants a customized crash animation-->
+        <environment>
+            <wildfire>
+                <fire-on-crash type="bool" >false</fire-on-crash>
+            </wildfire>
+			 <turbulence>
+      <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+        </environment>
+
+</PropertyList>

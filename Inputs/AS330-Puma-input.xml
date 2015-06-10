@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+    Usable with FlightGear
+    Property of Gerard Robin
+    Copyright License:  CREATIVE COMMON
+-->
+<PropertyList>
+
+    <keyboard>
+
+
+			<key n="123">
+				<name>{</name>
+				<desc>Shutdown Engines</desc>
+				<binding>
+					<command>nasal</command>
+					<script>puma.engines(-1)</script>
+				</binding>
+			</key>
+			<key n="125">
+				<name>}</name>
+				<desc>Start Engine and Electric power On</desc>
+				<binding>
+					<command>nasal</command>
+					<script>puma.electric()</script>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>puma.engines(1)</script>
+				</binding>
+			</key>
+                        <key n="100">
+                                <name>d</name>
+                                <desc>Toggle Rear Left-Right Door</desc>
+                                <binding>
+                                        <command>property-toggle</command>
+                                        <property>/controls/doors/left-door</property>
+                                </binding>
+				<binding>
+                                        <command>property-toggle</command>
+                                        <property>/controls/doors/right-door</property>
+                                </binding>
+                        </key>
+                        <key n="78">
+				<name>N</name>
+				<desc>Toggle rotor brake</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var p = "/controls/rotor/brake";
+						setprop(p, !getprop(p));
+					</script>
+				</binding>
+			</key>
+		</keyboard>
+</PropertyList>

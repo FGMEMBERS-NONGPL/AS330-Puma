@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<fx>
+		<engine>
+			<name>engine</name>
+			<mode>looped</mode>
+			<path>Aircraft/AS330-Puma/Sounds/rotor.wav</path>
+			<condition>
+				<and>
+					<greater-than>
+						<property>rotors/main/rpm</property>
+						<value>.5</value>
+					</greater-than>
+					<not>
+						<property>sim/crashed</property>
+					</not>
+				</and>
+			</condition>
+			<volume>
+				<factor>.2</factor>
+			</volume>
+			<pitch>
+				<property>rotors/main/rpm</property>
+				<factor>0.01</factor>
+				<max>4.5</max>
+			</pitch>
+		</engine>
+
+	
+
+		<contact>
+			<name>ground contact</name>
+			<mode>transient</mode>
+			<path>Sounds/helicopter-skid.wav</path>
+			<condition>
+				<or>
+					<property>gear/gear[0]/wow</property>
+					<property>gear/gear[1]/wow</property>
+					<property>gear/gear[2]/wow</property>
+					<property>gear/gear[3]/wow</property>
+				</or>
+			</condition>
+			<volume>
+				<factor>.8</factor>
+			</volume>
+			<pitch>
+				<factor>2</factor>
+			</pitch>
+			<reference-dist>10.0</reference-dist>
+			<max-dist>20.0</max-dist>
+		</contact>
+
+		
+
+		<crash>
+			<name>intense ground contact</name>
+			<mode>transient</mode>
+			<path>Sounds/crash.wav</path>
+			<property>sim/crashed</property>
+			<volume>
+				<factor>1</factor>
+			</volume>
+			<pitch>
+				<factor>1.5</factor>
+			</pitch>
+		</crash>
+	</fx>
+</PropertyList>

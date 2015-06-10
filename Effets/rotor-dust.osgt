@@ -1,0 +1,188 @@
+#Ascii Scene
+#Version 77
+#Generator OpenSceneGraph 2.9.16
+
+osg::Group {
+  UniqueID 1
+  Name "rotor-dust.osg"
+  DataVariance STATIC
+  Children 4 {
+    osgParticle::ModularEmitter {
+      UniqueID 2
+      DataVariance DYNAMIC
+      ReferenceFrame ABSOLUTE_RF
+      ParticleSystem TRUE {
+        osgParticle::ParticleSystem {
+          UniqueID 3
+          DataVariance DYNAMIC
+          StateSet TRUE {
+            osg::StateSet {
+              UniqueID 4
+              DataVariance STATIC
+              ModeList 2 {
+                GL_LIGHTING OFF
+                GL_BLEND ON
+              }
+              AttributeList 2 {
+                osg::Material {
+                  UniqueID 5
+                  DataVariance STATIC
+                  Ambient TRUE Front 0.2 0.2 0.2 1 Back 0.2 0.2 0.2 1
+                  Diffuse TRUE Front 0.8 0.8 0.8 1 Back 0.8 0.8 0.8 1
+                  Specular FALSE Front 0 0 0 1 Back 0 0 0 1
+                  Emission FALSE Front 0 0 0 1 Back 0 0 0 1
+                  Shininess TRUE Front 0 Back 0
+                }
+                Value OFF
+                osg::BlendFunc {
+                  UniqueID 6
+                  DataVariance STATIC
+                  SourceRGB SRC_ALPHA
+                  SourceAlpha SRC_ALPHA
+                  DestinationRGB ONE_MINUS_SRC_ALPHA
+                  DestinationAlpha ONE_MINUS_SRC_ALPHA
+                }
+                Value OFF
+              }
+              TextureModeList 1 {
+                Data 1 {
+                  GL_TEXTURE_2D ON
+                }
+              }
+              TextureAttributeList 1 {
+                Data 2 {
+                  osg::Texture2D {
+                    UniqueID 7
+                    DataVariance STATIC
+                    WRAP_S CLAMP
+                    WRAP_T CLAMP
+                    WRAP_R CLAMP
+                    MIN_FILTER LINEAR
+                    MAG_FILTER LINEAR
+                    UnRefImageDataAfterApply TRUE
+                    ResizeNonPowerOfTwoHint TRUE
+                    Image TRUE {
+                      UniqueID 8
+                      FileName "particle.png"
+                      WriteHint 0 2
+                      DataVariance STATIC
+                    }
+                  }
+                  Value OFF
+                  osg::TexEnv {
+                    UniqueID 9
+                    DataVariance STATIC
+                  }
+                  Value OFF
+                }
+              }
+              RenderingHint 2
+              RenderBinMode USE_RENDERBIN_DETAILS
+              BinNumber 1
+              BinName "DepthSortedBin"
+            }
+          }
+          SupportsDisplayList FALSE
+          UseDisplayList FALSE
+          DefaultBoundingBox {
+            Minimum -1 -1 -1
+            Maximum 1 1 1
+          }
+          AlignVectorX 1 0 0
+          AlignVectorY 0 1 0
+          DefaultParticleTemplate {
+            Shape QUAD
+            LifeTime 10
+            SizeRange 0.1 0.4
+            AlphaRange 1 0.1
+            ColorRange 1 1 1 1 1 1 1 1
+            SizeInterpolator TRUE {
+              osgParticle::LinearInterpolator {
+                UniqueID 10
+                DataVariance DYNAMIC
+              }
+            }
+            AlphaInterpolator TRUE {
+              osgParticle::LinearInterpolator {
+                UniqueID 11
+                DataVariance DYNAMIC
+              }
+            }
+            ColorInterpolator TRUE {
+              osgParticle::LinearInterpolator {
+                UniqueID 12
+                DataVariance DYNAMIC
+              }
+            }
+            Radius 0.2
+            Mass 0.1
+            Position 0 0 0
+            Velocity 0 0 0
+            Angle 0 0 0
+            AngularVelocity 0 0 0
+            TextureTile 1 1 1
+            Drawable FALSE
+          }
+        }
+      }
+      ResetTime 5
+      Counter TRUE {
+        osgParticle::RandomRateCounter {
+          UniqueID 13
+          DataVariance DYNAMIC
+          RateRange 80 100
+        }
+      }
+      Placer TRUE {
+        osgParticle::PointPlacer {
+          UniqueID 14
+          DataVariance DYNAMIC
+        }
+      }
+      Shooter TRUE {
+        osgParticle::RadialShooter {
+          UniqueID 15
+          DataVariance DYNAMIC
+          ThetaRange -2.9 2.9
+          PhiRange -3.14159 3.14159
+          InitialSpeedRange 3 3.5
+          InitialRotationalSpeedRange 0 0 0 0 0 0
+        }
+      }
+    }
+    osgParticle::ModularProgram {
+      UniqueID 16
+      DataVariance DYNAMIC
+      ParticleSystem TRUE {
+        osgParticle::ParticleSystem {
+          UniqueID 3
+        }
+      }
+      Operators 1 {
+        osgParticle::AccelOperator {
+          UniqueID 17
+          DataVariance DYNAMIC
+          Acceleration 0 0 -2
+        }
+      }
+    }
+    osgParticle::ParticleSystemUpdater {
+      UniqueID 18
+      DataVariance DYNAMIC
+      ParticleSystems 1 {
+        osgParticle::ParticleSystem {
+          UniqueID 3
+        }
+      }
+    }
+    osg::Geode {
+      UniqueID 19
+      DataVariance DYNAMIC
+      Drawables 1 {
+        osgParticle::ParticleSystem {
+          UniqueID 3
+        }
+      }
+    }
+  }
+}

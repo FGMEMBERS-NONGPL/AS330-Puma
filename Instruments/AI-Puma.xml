@@ -3,7 +3,7 @@
 <!--
     Usable with FlightGear
     Property of Gerard Robin (C)  2007
-    Copyright License:  CREATIVE COMMON BY-NC-ND
+    Copyright License:  CREATIVE COMMON BY-NC-SA
 -->
 <PropertyList>
  <path>Models/ai-puma.ac</path>
@@ -21,8 +21,8 @@
 		<path>Aircraft/AS330-Puma/Instruments/Bouton-Nord.xml</path>
 		<offsets>
 			<x-m>0.0629219</x-m>
-			<y-m>-0.05</y-m>
-			<z-m>-0.05</z-m>
+			<y-m>-0.0448695</y-m>
+			<z-m>-0.04486950</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
@@ -32,8 +32,8 @@
                 <path>Aircraft/AS330-Puma/Instruments/Bouton-Nord.xml</path>
 		<offsets>
 			<x-m>0.0629219</x-m>
-			<y-m>0.05</y-m>
-			<z-m>-0.05</z-m>
+			<y-m>0.0448695</y-m>
+			<z-m>-0.0448695</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
@@ -57,17 +57,12 @@
 	<animation include="Instrument-Light4.xml">
 		<object-name>Fleche</object-name>
 	</animation>
-	
-	<effect>
-	    <inherits-from>Aircraft/AS330-Puma/Models/Effects/reflectp-shine</inherits-from>
-	    <object-name>Corp</object-name>	    
-	</effect>
 
 
 	<animation>
 		<type>rotate</type>
 		<object-name>Boule</object-name>
-		<property>fdm/jsbsim/instruments/ai/roll-deg</property>
+		<property>orientation/roll-deg</property>
 		<center>
 			<x-m>0</x-m>
 			<y-m>0</y-m>
@@ -83,7 +78,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Boule</object-name>
-		<property>fdm/jsbsim/instruments/ai/pitch-deg</property>
+		<property>orientation/pitch-deg</property>
 		<center>
 			<x-m>-0.00213637</x-m>
 			<y-m>0</y-m>
@@ -100,7 +95,7 @@
 		<type>rotate</type>
 		<object-name>Fleche</object-name>
 		<object-name>Fleche-Fond</object-name>
-		<property>fdm/jsbsim/instruments/ai/roll-deg</property>
+		<property>orientation/roll-deg</property>
 		<center>
 			<x-m>0</x-m>
 			<y-m>0</y-m>

@@ -3,7 +3,7 @@
 <!--
     Usable with FlightGear
     Property of Gerard Robin (C)  2007
-    Copyright License:  CREATIVE COMMON BY-NC-ND
+    Copyright License:  CREATIVE COMMON BY-NC-SA
 -->
 <PropertyList>
  <path>Models/ai2-puma.ac</path>
@@ -16,7 +16,7 @@
 
 	<!--<model>
 		<name>BoutonG</name>
-		<path>Aircraft/Fouga/Instruments/Bouton_pt-Nord.xml</path>
+		<path>Aircraft/Fouga/Instruments/Bouton_pt-f4u7.xml</path>
 		<offsets>
                     <x-m>0.028</x-m>
 			<y-m>-0.0340</y-m>
@@ -27,7 +27,7 @@
 
 	<model>
 		<name>BoutonD</name>
-		<path>Aircraft/AS330-Puma/Instruments/Bouton_pt-Nord.xml</path>
+		<path>Aircraft/AS330-Puma/Instruments/Bouton_pt-f4u7.xml</path>
 		<offsets>
                     <x-m>0.028</x-m>
 			<y-m>0.0340</y-m>
@@ -63,7 +63,7 @@
         <animation>
             <type>rotate</type>
             <object-name>Boule</object-name>
-            <property>fdm/jsbsim/instruments/ai/roll-deg</property>
+            <property>orientation/roll-deg</property>
             <center>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
@@ -80,7 +80,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Boule</object-name>
-                <property>fdm/jsbsim/instruments/ai/pitch-deg</property>
+                <property>orientation/pitch-deg</property>
 		<center>
 			<x-m>-0</x-m>
 			<y-m>0</y-m>
@@ -97,7 +97,7 @@
 		<type>rotate</type>
 		<object-name>Fleche</object-name>
 		<object-name>Fleche-Fond</object-name>
-                <property>fdm/jsbsim/instruments/ai/roll-deg</property>
+                <property>orientation/roll-deg</property>
 		<center>
 			<x-m>0</x-m>
 			<y-m>0</y-m>

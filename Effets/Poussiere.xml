@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<!--
+    Usable with FlightGear
+    property gerard robin
+    Copyright License:  CREATIVE-COMMON
+-->
+        <!--     Auteur :      Gerard ROBIN               CREATIVE-COMMON        COPYRIGHT
+                 BY-NC-SA-->
+
+
+ <path>poussiere.osgx</path>
+
+
+ <offsets>
+    <x-m> 0</x-m>
+    <y-m> 00 </y-m>
+    <z-m> -2</z-m>
+    <pitch-deg>-5</pitch-deg>
+    <roll-deg>0</roll-deg>
+ </offsets>
+
+
+ <animation>
+     <type>scale</type>
+     <object-name>rotor-dust</object-name>
+     <property>position/gear-agl-m</property>
+     <x-offset>0.20</x-offset>
+     <y-offset>0.20</y-offset>
+     <z-offset>0.10</z-offset>
+     <x-min>0.5</x-min>
+     <x-max>0.7</x-max>
+     <y-min>0.5</y-min>
+     <y-max>0.7</y-max>
+     <z-min>0.1</z-min>
+      <z-max>0.7</z-max>
+     <x-factor>0.2</x-factor>
+     <y-factor>0.2</y-factor>
+     <z-factor>0.15</z-factor>
+</animation>
+
+
+
+
+
+
+</PropertyList>
